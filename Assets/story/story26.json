@@ -1,0 +1,24 @@
+{
+  "description": "去吃飯剛好碰到承辦人員",
+  "dialog": [
+    {
+      "who": "我",
+      "sentence": "你好，我想交停修單，本來要去圖書館找看看你的"
+    },
+    {
+      "who": "小姐",
+      "sentence": "那你運氣不錯，我剛好想吃點東西"
+    },
+    {
+      "who": "我",
+      "sentence": "謝謝"
+    }
+  ],
+  "option_description": "你打算怎麼辦呢？",
+  "option": [
+    {
+      "name": "教務處",
+      "description": "去教務處交停修單吧!"
+    }
+  ]
+}

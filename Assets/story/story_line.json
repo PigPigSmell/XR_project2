@@ -1,0 +1,226 @@
+[
+{
+	"position": "0",
+	"option": ["1", "2"],
+	"path_cost": ["0", "0"],
+	"video": "",
+	"story": "story0.json",
+	"music": ""
+},
+{
+	"position": "1",
+	"option": ["4", "5"],
+	"path_cost": ["10", "10"],
+	"video": "",
+	"story": "story1.json",
+	"music": ""
+},
+{
+	"position": "2",
+	"option": ["1", "5"],
+	"path_cost": ["10", "10"],
+	"video": "",
+	"story": "story2.json",
+	"music": ""
+},
+{
+	"position": "3",
+	"option": ["-1"],
+	"path_cost": ["90"],
+	"video": "",
+	"story": "story3.json",
+	"music": ""
+},
+{
+	"position": "4",
+	"option": ["6", "7"],
+	"path_cost": ["10", "5"],
+	"video": "",
+	"story": "story4.json",
+	"music": ""
+},
+{
+	"position": "5",
+	"option": ["8", "9"],
+	"path_cost": ["10", "5"],
+	"video": "",
+	"story": "story5.json",
+	"music": ""
+},
+{
+	"position": "6",
+	"option": ["10", "11"],
+	"path_cost": ["5", "10"],
+	"video": "",
+	"story": "story6.json",
+	"music": ""
+},
+{
+	"position": "7",
+	"option": ["12", "8"],
+	"path_cost": ["5", "10"],
+	"video": "",
+	"story": "story7.json",
+	"music": ""
+},
+{
+	"position": "8",
+	"option": ["13", "14"],
+	"path_cost": ["10", "15"],
+	"video": "",
+	"story": "story8.json",
+	"music": ""
+},
+{
+	"position": "9",
+	"option": ["14", "15"],
+	"path_cost": ["15", "25"],
+	"video": "",
+	"story": "story9.json",
+	"music": ""
+},
+{
+	"position": "10",
+	"option": ["16", "17"],
+	"path_cost": ["10", "10"],
+	"video": "",
+	"story": "story10.json",
+	"music": ""
+},
+{
+	"position": "11",
+	"option": ["25", "17"],
+	"path_cost": ["10", "15"],
+	"video": "",
+	"story": "story11.json",
+	"music": ""
+},
+{
+	"position": "12",
+	"option": ["26", "18"],
+	"path_cost": ["10", "10"],
+	"video": "",
+	"story": "story12.json",
+	"music": ""
+},
+{
+	"position": "13",
+	"option": ["19", "20"],
+	"path_cost": ["10", "20"],
+	"video": "",
+	"story": "story13.json",
+	"music": ""
+},
+{
+	"position": "14",
+	"option": ["20", "21"],
+	"path_cost": ["20", "10"],
+	"video": "",
+	"story": "story14.json",
+	"music": ""
+},
+{
+	"position": "15",
+	"option": ["21", "27"],
+	"path_cost": ["25", "20"],
+	"video": "",
+	"story": "story15.json",
+	"music": ""
+},
+{
+	"position": "16",
+	"option": ["-1"],
+	"path_cost": ["0"],
+	"video": "",
+	"story": "story16.json",
+	"music": ""
+},
+{
+	"position": "17",
+	"option": ["25"],
+	"path_cost": ["15"],
+	"video": "",
+	"story": "story17.json",
+	"music": ""
+},
+{
+	"position": "18",
+	"option": ["22"],
+	"path_cost": ["20"],
+	"video": "",
+	"story": "story18.json",
+	"music": ""
+},
+{
+	"position": "19",
+	"option": ["-1"],
+	"path_cost": ["0"],
+	"video": "",
+	"story": "story19.json",
+	"music": ""
+},
+{
+	"position": "20",
+	"option": ["23"],
+	"path_cost": ["10"],
+	"video": "",
+	"story": "story20.json",
+	"music": ""
+},
+{
+	"position": "21",
+	"option": ["24"],
+	"path_cost": ["10"],
+	"video": "",
+	"story": "story21.json",
+	"music": ""
+},
+{
+	"position": "22",
+	"option": ["-1"],
+	"path_cost": ["0"],
+	"video": "",
+	"story": "story22.json",
+	"music": ""
+},
+{
+	"position": "23",
+	"option": ["24"],
+	"path_cost": ["10"],
+	"video": "",
+	"story": "story23.json",
+	"music": ""
+},
+{
+	"position": "24",
+	"option": ["-1"],
+	"path_cost": ["0"],
+	"video": "",
+	"story": "story24.json",
+	"music": ""
+},
+{
+	"position": "25",
+	"option": ["10"],
+	"path_cost": ["10", "0"],
+	"video": "",
+	"story": "story25.json",
+	"music": ""
+},
+{
+	"position": "26",
+	"option": ["25"],
+	"path_cost": ["15"],
+	"video": "",
+	"story": "story26.json",
+	"music": ""
+},
+{
+	"position": "27",
+	"option": ["24"],
+	"path_cost": ["10"],
+	"video": "",
+	"story": "story27.json",
+	"music": ""
+}
+]

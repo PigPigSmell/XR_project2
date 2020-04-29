@@ -1,0 +1,20 @@
+{
+  "description": "把停修單拿給櫃檯小姐，請小姐蓋章",
+  "dialog": [
+    {
+      "who": "櫃檯小姐",
+      "sentence": "記得還要拿給老師簽名喔"
+    }
+  ],
+  "option_description": "老師會在哪呢？",
+  "option": [
+    {
+      "name": "老師辦公室",
+      "description": "先去老師辦公室找老師吧"
+    },
+    {
+      "name": "圖書館",
+      "description": "老師會不會在圖書館開會呢"
+    }
+  ]
+}

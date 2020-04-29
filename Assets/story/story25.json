@@ -1,0 +1,28 @@
+{
+  "description": "希望教務處小姐可以通融我，拜託！",
+  "dialog": [
+    {
+      "who": "我",
+      "sentence": "你好，我想交停修單"
+    },
+    {
+      "who": "小姐",
+      "sentence": "你沒有老師簽名誒"
+    },
+    {
+      "who": "我",
+      "sentence": "可以拜託通融一下嗎，我找不到老師"
+    },
+    {
+      "who": "小姐",
+      "sentence": "沒辦法喔，一定要老師簽名"
+    }
+  ],
+  "option_description": "你打算怎麼辦呢？",
+  "option": [
+    {
+      "name": "老師辦公式",
+      "description": "沒辦法了，再去賭賭看吧"
+    }
+  ]
+}

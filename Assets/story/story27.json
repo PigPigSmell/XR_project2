@@ -1,0 +1,21 @@
+
+{
+  "description": "在圖書館終於找到承辦人員",
+  "dialog": [
+    {
+      "who": "我",
+      "sentence": "你好，我想交停修單，請幫我蓋章"
+    },
+    {
+      "who": "小姐",
+      "sentence": "好呀！我剛好有帶章出來呢！"
+    }
+  ],
+  "option_description": "你打算怎麼辦呢？",
+  "option": [
+    {
+      "name": "教務處",
+      "description": "去教務處交停修單吧!"
+    }
+  ]
+}

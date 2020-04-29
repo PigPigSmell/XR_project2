@@ -1,0 +1,28 @@
+{
+  "description": "昨天到處都找不到系辦人員，今天應該要在吧？在欸！太好了！",
+  "dialog": [
+    {
+      "who": "我",
+      "sentence": "你好我要停修，可以幫我蓋章嗎？"
+    },
+    {
+      "who": "小姐",
+      "sentence": "OK 沒問題，給老師簽了嗎？"
+    },
+    {
+      "who": "我",
+      "sentence": "有喔"
+    },
+    {
+      "who": "小姐",
+      "sentence": "那接著你交去教務處就可以了"
+    }
+  ],
+  "option_description": "你打算怎麼辦呢？",
+  "option": [
+    {
+      "name": "教務處",
+      "description": "去交到教務處吧"
+    }
+  ]
+}

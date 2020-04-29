@@ -1,0 +1,44 @@
+{
+  "description": "看在系辦找到老師，但沒看到承辦人員，請老師幫忙簽名",
+  "dialog": [
+    {
+      "who": "我",
+      "sentence": "老師你好，想要請你幫我簽一下停修單"
+    },
+    {
+      "who": "老師",
+      "sentence": "為甚麼要停修呢?"
+    },
+    {
+      "who": "我",
+      "sentence": "因為這學期loading太重，忙不過來"
+    },
+    {
+      "who": "老師",
+      "sentence": "好吧 ，下學期要加油喔"
+    },
+    {
+      "who": "我",
+      "sentence": "有人知道承辦人員去哪了嗎"
+    },
+    {
+      "who": "路人A",
+      "sentence": "他好像去吃東西"
+    },
+    {
+      "who": "路人B",
+      "sentence": "他說要去拜拜"
+    }
+  ],
+  "option_description": "承辦人員到底在哪？",
+  "option": [
+    {
+      "name": "餐廳",
+      "description": "餐廳比較近，先去那裡看看好了"
+    },
+    {
+      "name": "土地公廟",
+      "description": "今天是初一，一定去拜拜了"
+    }
+  ]
+}

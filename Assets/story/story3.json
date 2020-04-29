@@ -1,0 +1,13 @@
+{
+  "description": "算了，有夠累。我期末再考高一點就好。",
+  "dialog": [
+
+  ],
+  "option_description": "",
+  "option": [
+    {
+      "name": "放棄停修",
+      "description": "(Game Over)"
+    }
+  ]
+}

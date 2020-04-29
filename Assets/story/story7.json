@@ -1,0 +1,17 @@
+{
+  "description": "老師不在辦公室(敲門沒有回應)",
+  "dialog": [
+    
+  ],
+  "option_description": "接下來要去哪？",
+  "option": [
+    {
+      "name": "系辦",
+      "description": "去問問老師不在怎麼辦"
+    },
+    {
+      "name": "圖書館",
+      "description": "老師很喜歡去圖書館，他會不會在那邊呢"
+    }
+  ]
+}
