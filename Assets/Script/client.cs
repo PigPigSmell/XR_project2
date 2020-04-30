@@ -17,11 +17,19 @@ public class client : MonoBehaviour
     public GameObject GameController;
     public GameObject ButtonAB;
     public GameObject StartButton;
+    public Image img;
+    public AudioSource BGM;
+    public GameObject Buttonnext;
+    //
+    AudioSource audio_source;
+    public AudioClip welcome;
+    public AudioClip b_sound;
 
     public Text GameResult_temp;
     private bool getGameResult = false;
     private string role;
-    
+    public Text story;
+
     public Text resultA;
     public Text resultB;
     public Text StartText;
@@ -30,7 +38,7 @@ public class client : MonoBehaviour
 
     string go = "false:";
 
-    string editString = "connect"; //編輯框文字
+    string editString = "start"; //編輯框文字
 
     Socket serverSocket; //伺服器端socket
     IPAddress ip; //主機ip
@@ -42,6 +50,7 @@ public class client : MonoBehaviour
     int recvLen; //接收的資料長度
     Thread connectThread; //連線執行緒
 
+    private bool played = false;
     private int step = 0;
     private string press;
 
@@ -122,12 +131,14 @@ public class client : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audio_source = GetComponent<AudioSource>();
         StartScene.SetActive(true);
         SceneController.SetActive(false);
         GameController.SetActive(false);
         ButtonAB.SetActive(false);
+        Buttonnext.SetActive(false);
         InitSocket();
-        step = -4;
+        step = -5;
         video.Stop();
     }
 
@@ -141,26 +152,31 @@ public class client : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(step);
-        if(step == -4)
+        //Debug.Log(step);
+        if (step == -5)
         {
             StartButton.GetComponentInChildren<Text>().text = "Start";
+            img.transform.GetChild(0).gameObject.SetActive(true);
         }
-        else if(step == -3)
+        else if (step == -4)
         {
-            StartText.text = "blablabla";
+            img.transform.GetChild(0).gameObject.SetActive(false);
+            img.transform.GetChild(1).gameObject.SetActive(true);
             StartButton.GetComponentInChildren<Text>().text = "Continue";
         }
-        else if(step == -2)
+        else if (step == -3)
         {
             SocketSend("connect");
             step++;
         }
-        else if(step == -1)
+        else if (step == -2)
         {
             string[] str = recvStr.Split(':');
-            if(str[0] == "role")
+            img.transform.GetChild(1).gameObject.SetActive(false);
+            img.transform.GetChild(2).gameObject.SetActive(true);
+            if (str[0] == "role")
             {
+                audio_source.PlayOneShot(welcome);
                 role = str[1];
                 StartText.text = "Your role is ... " + str[1];
                 StartButton.GetComponentInChildren<Text>().text = "OK";
@@ -170,40 +186,58 @@ public class client : MonoBehaviour
                 Debug.Log("Fail to load role.");
             }*/
         }
-        else if(step == 0)
+        else if (step == -1)
         {
-            StartText.text = "loading";
+            if (!played)
+            {
+                audio_source.PlayOneShot(b_sound);
+                played = true;
+            }
+            img.transform.GetChild(2).gameObject.SetActive(false);
+            img.transform.GetChild(3).gameObject.SetActive(true);
+
+            StartText.text = "loading...";
+
             StartButton.SetActive(false);
-            step++;
-        }
-        else if(step == 1)
+            
+            if (recvStr == "scene start")
+            {
+                audio_source.PlayOneShot(b_sound);
+                BGM.Pause();
+                step++;
+            }
+        }else if(step == 0)
         {
-            StartScene.SetActive(false);
+            StartText.text = "";
+            img.transform.GetChild(3).gameObject.SetActive(false);
             SceneController.SetActive(true);
+            img.transform.GetChild(4).gameObject.SetActive(true);
+            Buttonnext.SetActive(true);
+            Buttonnext.GetComponentInChildren<Text>().text = "Continue";
+            
+        }
+        else if (step == 1)
+        {
+            //img.transform.GetChild(4).gameObject.SetActive(false);
+            Buttonnext.SetActive(false);
+            StartScene.SetActive(false);
+            story.text = "";
+            //SceneController.SetActive(false);
             video.Play();
+
             if (video.isPlaying)
             {
                 step++;
             }
-            /*if(recvStr == "scene start")
-            {
-                StartScene.SetActive(false);
-                SceneController.SetActive(true);
-                video.Play();
-                if (video.isPlaying)
-                {
-                    step++;
-                }
-            }*/
         }
-        else if(step == 2)
+        else if (step == 2)
         {
             if (!video.isPlaying)
             {
                 step++;
             }
         }
-        else if(step == 3)
+        else if (step == 3)
         {
             GameController.SetActive(true);
             //SceneController.SetActive(false);
@@ -216,7 +250,7 @@ public class client : MonoBehaviour
                 video.gameObject.SetActive(false);
             }*/
             // Sent game result
-            if(getGameResult == true)
+            if (getGameResult == true)
             {
                 SocketSend(GameResult_temp.text);
                 GameController.SetActive(false);
@@ -225,7 +259,7 @@ public class client : MonoBehaviour
                 step++;
             }
         }
-        else if(step == 4)
+        else if (step == 4)
         {
             // Recieve winner information
             string[] str = recvStr.Split(':');
@@ -236,7 +270,7 @@ public class client : MonoBehaviour
                     ButtonAB.transform.GetChild(0).GetComponent<Button>().interactable = true;
                     ButtonAB.transform.GetChild(1).GetComponent<Button>().interactable = true;
                 }
-                else if(str[1] != role)
+                else if (str[1] != role)
                 {
                     ButtonAB.transform.GetChild(0).GetComponent<Button>().interactable = false;
                     ButtonAB.transform.GetChild(1).GetComponent<Button>().interactable = false;
@@ -249,12 +283,12 @@ public class client : MonoBehaviour
                 Debug.Log("Fail to load winner.");
             }*/
         }
-        else if(step == 5)
+        else if (step == 5)
         {
             // sent vote (A/B)
             step++;
         }
-        else if(step == 6)
+        else if (step == 6)
         {
             string[] str = recvStr.Split('=');
             if (str[0] == "A:B")
@@ -273,7 +307,7 @@ public class client : MonoBehaviour
                     recvStr = "scene start";
                     resultA.text = "";
                     resultB.text = "";
-                    step = 1;
+                    step =  0;
                 }
             }
             /*else
@@ -281,6 +315,21 @@ public class client : MonoBehaviour
                 Debug.Log("Fail to load vote result.");
             }*/
         }
+      /*  else if (step == 7)
+        {
+            img.transform.GetChild(3).gameObject.SetActive(false);
+            img.transform.GetChild(4).gameObject.SetActive(true);
+            Buttonnext.SetActive(true);
+            Buttonnext.GetComponentInChildren<Text>().text = "Continue";
+        }
+        else if (step == 8)
+        {
+            img.transform.GetChild(4).gameObject.SetActive(false);
+            Buttonnext.SetActive(false);
+            step = 1;
+        }*/
+
+
         /*if (step == 7)
         {
             string[] str = recvStr.Split(':');
@@ -299,11 +348,11 @@ public class client : MonoBehaviour
 
     public void PressA()
     {
-        SocketSend("+1");
+        SocketSend("vote:A");
     }
     public void PressB()
     {
-        SocketSend("-1");
+        SocketSend("vote:B");
     }
     public void temp_gameResult()
     {

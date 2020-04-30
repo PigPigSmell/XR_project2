@@ -1,12 +1,15 @@
 [Ll]ibrary/
 [Ll]ogs/
-[Mm]edia/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
 server/node_modules
+*.mp4
+*.MP4
+*.mp4.meta
+*.MP4.meta
 
 # Visual Studio 2015 cache directory
 /.vs/
@@ -34,7 +37,6 @@ ExportedObj/
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
-*.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt

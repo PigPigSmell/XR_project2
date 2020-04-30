@@ -1,52 +1,52 @@
 [
-{
-	"position": "0",
-	"option": ["1", "2"],
-	"path_cost": ["0", "0"],
-	"video": "",
-	"story": "story0.json",
-	"music": ""
-},
-{
-	"position": "1",
-	"option": ["4", "5"],
-	"path_cost": ["10", "10"],
-	"video": "",
-	"story": "story1.json",
-	"music": ""
-},
-{
-	"position": "2",
-	"option": ["1", "5"],
-	"path_cost": ["10", "10"],
-	"video": "",
-	"story": "story2.json",
-	"music": ""
-},
-{
-	"position": "3",
-	"option": ["-1"],
-	"path_cost": ["90"],
-	"video": "",
-	"story": "story3.json",
-	"music": ""
-},
-{
-	"position": "4",
-	"option": ["6", "7"],
-	"path_cost": ["10", "5"],
-	"video": "",
-	"story": "story4.json",
-	"music": ""
-},
-{
-	"position": "5",
-	"option": ["8", "9"],
-	"path_cost": ["10", "5"],
-	"video": "",
-	"story": "story5.json",
-	"music": ""
-},
+	{
+		"position": "0",
+		"option": [ "1", "2" ],
+		"path_cost": [ "0", "0" ],
+		"video": "testedit_2.mp4",
+		"story": "story0.json",
+		"music": ""
+	},
+	{
+		"position": "1",
+		"option": [ "4", "5" ],
+		"path_cost": [ "10", "10" ],
+		"video": "testedit.mp4",
+		"story": "story1.json",
+		"music": ""
+	},
+	{
+		"position": "2",
+		"option": [ "1", "5" ],
+		"path_cost": [ "10", "10" ],
+		"video": "testedit.mp4",
+		"story": "story2.json",
+		"music": ""
+	},
+	{
+		"position": "3",
+		"option": [ "-1" ],
+		"path_cost": [ "90" ],
+		"video": "testedit.mp4",
+		"story": "story3.json",
+		"music": ""
+	},
+	{
+		"position": "4",
+		"option": [ "6", "7" ],
+		"path_cost": [ "10", "5" ],
+		"video": "testedit_2.mp4",
+		"story": "story4.json",
+		"music": ""
+	},
+	{
+		"position": "5",
+		"option": [ "8", "9" ],
+		"path_cost": [ "10", "5" ],
+		"video": "testedit.mp4",
+		"story": "story5.json",
+		"music": ""
+	},
 {
 	"position": "6",
 	"option": ["10", "11"],
