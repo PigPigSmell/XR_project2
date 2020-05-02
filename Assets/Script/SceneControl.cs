@@ -14,7 +14,8 @@ public class SceneControl : MonoBehaviour
     public Button B;
     public Text story;
     public VideoPlayer video;
-    private int v;
+
+    static public bool miss;
 
     private int mode;
     //private StringBuilder story_data = new StringBuilder(); // Store the data read from Json
@@ -38,10 +39,10 @@ public class SceneControl : MonoBehaviour
 
         // Initialize
         mode = 0;
+        miss = false;
         ShowInformation();
 
         c = GameObject.Find("Manager").GetComponent<client>();
-        v = 0;
     }
 
     // Update is called once per frame
@@ -66,17 +67,18 @@ public class SceneControl : MonoBehaviour
 
     public void PressA()
     {
-        mode = int.Parse((string)(data[mode]["option"][0]));
+        mode = Mathf.Abs(int.Parse((string)(data[mode]["option"][0])));
         ShowInformation();
     }
     public void PressB()
     {
-        mode = int.Parse((string)(data[mode]["option"][1]));
+        mode = Mathf.Abs(int.Parse((string)(data[mode]["option"][1])));
         ShowInformation();
     }
 
     private void ShowInformation()
     {
+        //Debug.Log("mode: " + mode);
         // Store Story
         string filePath = path + "story" + mode.ToString() + ".json";
         StringBuilder story_data = new StringBuilder(); // Store the data read from Json
@@ -89,34 +91,61 @@ public class SceneControl : MonoBehaviour
         // story description
         story.text = (string)(story_i["description"]);
 
+        // video setting
+        //video.url = "file://E:/tmp/" + data[mode]["video"];
+        video.url = "Media/360/0.MP4";
+
+        // audio setting
+
         // option description
-        if((string)(data[mode]["option"][0]) == "-1")
+        miss = false;
+        if (int.Parse((string)(data[mode]["option"][0])) == 0) // win
         {
+            miss = true;
             A.gameObject.SetActive(false);
             B.gameObject.SetActive(false);
         }
         else
         {
-            A.GetComponentInChildren<Text>().text = (string)(story_i["option"][0]["name"]) + " : " + (string)(story_i["option"][0]["description"]);
-            if(story_i["option"].Count > 1)
+            //Debug.Log(data[mode]["option"][0].ToString()[0]);
+            char signA = data[mode]["option"][0].ToString()[0];
+            char signB = data[mode]["option"][1].ToString()[0];
+
+            if(signA =='+' || signA == '-')
             {
-                B.GetComponentInChildren<Text>().text = (string)(story_i["option"][1]["name"]) + " : " + (string)(story_i["option"][1]["description"]);
+                ShowButton(story_i, 0, signA);
+                ShowButton(story_i, 1, signB);
             }
             else
             {
-                //B.gameObject.SetActive(false);
-                B.GetComponentInChildren<Text>().text = "NULL";
+                miss = true;
+                //PressA();
             }
         }
+    }
 
-        // video setting
-        video.url = "file://E:/tmp/" + data[mode]["video"];
-        /*video.url = "Media/360/" + v.ToString() + ".MP4";
-        v++;
-        v %= 2;
-        */
-        // audio setting
+    private void ShowButton(JsonData story_i, int i, char sign)
+    {
+        string str = "";
+        if (sign == '+')
+        {
+            // positive option
+            str = "(70%) ";
+        }
+        else if (sign == '-')
+        {
+            // negative option
+            str = "(30%) ";
+        }
 
+        if(i == 0)
+        {
+            A.GetComponentInChildren<Text>().text = str + (string)(story_i["option"][0]["name"]) + " : " + (string)(story_i["option"][0]["description"]);
+        }
+        else if (i == 1)
+        {
+            B.GetComponentInChildren<Text>().text = str + (string)(story_i["option"][1]["name"]) + " : " + (string)(story_i["option"][1]["description"]);
+        }
     }
 
     private void EndGame()

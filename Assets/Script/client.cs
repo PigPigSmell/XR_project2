@@ -53,6 +53,9 @@ public class client : MonoBehaviour
     private bool played = false;
     private int step = 0;
     private string press;
+    private bool skip;
+
+    SceneControl sc;
 
     //初始化
     void InitSocket()
@@ -131,6 +134,8 @@ public class client : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        sc = GameObject.Find("SceneManager").GetComponent<SceneControl>();
+
         audio_source = GetComponent<AudioSource>();
         StartScene.SetActive(true);
         SceneController.SetActive(false);
@@ -211,16 +216,21 @@ public class client : MonoBehaviour
             StartText.text = "";
             img.transform.GetChild(3).gameObject.SetActive(false);
             SceneController.SetActive(true);
-            img.transform.GetChild(4).gameObject.SetActive(true);
+            StartScene.SetActive(false);
+            //img.transform.GetChild(4).gameObject.SetActive(true);
             Buttonnext.SetActive(true);
             Buttonnext.GetComponentInChildren<Text>().text = "Continue";
-            
+
+            skip = SceneControl.miss;
+
+            video.Play();
+            video.Pause();
         }
         else if (step == 1)
         {
             //img.transform.GetChild(4).gameObject.SetActive(false);
             Buttonnext.SetActive(false);
-            StartScene.SetActive(false);
+            //StartScene.SetActive(false);
             story.text = "";
             //SceneController.SetActive(false);
             video.Play();
@@ -234,21 +244,22 @@ public class client : MonoBehaviour
         {
             if (!video.isPlaying)
             {
-                step++;
+                //Debug.Log(skip);
+                if(skip == true)
+                {
+                    step = 0;
+                    sc.PressA();
+                }
+                else
+                {
+                    step++;
+                }
             }
         }
         else if (step == 3)
         {
             GameController.SetActive(true);
-            //SceneController.SetActive(false);
-            //video.gameObject.SetActive(false);
 
-            /*if (recvStr == "game start")
-            {
-                GameController.SetActive(true);
-                SceneController.SetActive(false);
-                video.gameObject.SetActive(false);
-            }*/
             // Sent game result
             if (getGameResult == true)
             {
@@ -285,24 +296,19 @@ public class client : MonoBehaviour
         }
         else if (step == 5)
         {
-            // sent vote (A/B)
-            step++;
-        }
-        else if (step == 6)
-        {
-            string[] str = recvStr.Split('=');
-            if (str[0] == "A:B")
+            string[] str = recvStr.Split(':');
+            if (str[0] == "A")
             {
-                string[] num = str[1].Split(':');
+                string[] str1 = recvStr.Split('=');
+                string[] num = str1[1].Split(':');
                 resultA.text = num[0];
                 resultB.text = num[1];
             }
             else
             {
-                string[] str1 = recvStr.Split(':');
-                if (str1[0] == "go")
+                if (str[0] == "go")
                 {
-                    go = "true:" + str1[1];
+                    go = "true:" + str[1];
                     ButtonAB.gameObject.SetActive(false);
                     recvStr = "scene start";
                     resultA.text = "";
@@ -315,35 +321,6 @@ public class client : MonoBehaviour
                 Debug.Log("Fail to load vote result.");
             }*/
         }
-      /*  else if (step == 7)
-        {
-            img.transform.GetChild(3).gameObject.SetActive(false);
-            img.transform.GetChild(4).gameObject.SetActive(true);
-            Buttonnext.SetActive(true);
-            Buttonnext.GetComponentInChildren<Text>().text = "Continue";
-        }
-        else if (step == 8)
-        {
-            img.transform.GetChild(4).gameObject.SetActive(false);
-            Buttonnext.SetActive(false);
-            step = 1;
-        }*/
-
-
-        /*if (step == 7)
-        {
-            string[] str = recvStr.Split(':');
-            if (str[0] == "go")
-            {
-                go = "true:" + str[1];
-                ButtonAB.gameObject.SetActive(false);
-                step = 2;
-            }
-            else
-            {
-                Debug.Log("Fail to load go.");
-            }
-        }*/
     }
 
     public void PressA()
