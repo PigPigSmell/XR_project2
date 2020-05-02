@@ -7,12 +7,20 @@ public class GameEnv : MonoBehaviour
 {
     public SkyboxController m_skyboxController;
     public List<Environment> m_envs = null;
+    public int env_index = 0;
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.DownArrow))
         {
-            m_skyboxController.NewEnvironment(m_envs[1]);
+            if(env_index +1 < m_envs.Count)
+            {
+                env_index += 1;
+            } else
+            {
+                env_index = 0;
+            }
+            m_skyboxController.NewEnvironment(m_envs[env_index]);
         }
     }
 }

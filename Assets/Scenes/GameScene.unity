@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_skyboxController: {fileID: 0}
   m_envs: []
+  env_index: 0
 --- !u!4 &1529850971
 Transform:
   m_ObjectHideFlags: 0
@@ -391,6 +392,7 @@ GameObject:
   - component: {fileID: 1829539196}
   - component: {fileID: 1829539195}
   - component: {fileID: 1829539194}
+  - component: {fileID: 1829539197}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -463,6 +465,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1829539197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829539193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3fb7934bda093444923540ace1af4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedH: 2
+  speedV: 2
 --- !u!1 &2002956233
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +531,7 @@ MonoBehaviour:
   - m_worldRotation: 0
     m_background: {fileID: 2800000, guid: 8c662a482860945479cb51725b73a4e4, type: 3}
     m_ambientNoise: {fileID: 0}
+  env_index: 0
 --- !u!4 &2002956235
 Transform:
   m_ObjectHideFlags: 0
