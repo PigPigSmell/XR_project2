@@ -65,6 +65,10 @@
   <ItemGroup>
     <Compile Include="Assets\Script\AudioController.cs" />
     <Compile Include="Assets\Script\ChangeScene.cs" />
+    <Compile Include="Assets\Script\Controllers\Controller.cs" />
+    <Compile Include="Assets\Script\Controllers\SkyboxController.cs" />
+    <Compile Include="Assets\Script\GameEnv.cs" />
+    <Compile Include="Assets\Script\GameInput.cs" />
     <Compile Include="Assets\Script\SceneControl.cs" />
     <Compile Include="Assets\Script\ball.cs" />
     <Compile Include="Assets\Script\change.cs" />
