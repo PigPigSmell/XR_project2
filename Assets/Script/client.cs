@@ -33,6 +33,7 @@ public class client : MonoBehaviour
     public Text resultA;
     public Text resultB;
     public Text StartText;
+    public Text time;
 
     public VideoPlayer video;
 
@@ -54,6 +55,9 @@ public class client : MonoBehaviour
     private int step = 0;
     private string press;
     private bool skip;
+
+    private float startTime;
+    private float endTime;
 
     SceneControl sc;
 
@@ -207,32 +211,30 @@ public class client : MonoBehaviour
             
             if (recvStr == "scene start")
             {
+                step++;
                 audio_source.PlayOneShot(b_sound);
                 BGM.Pause();
-                step++;
+
+                img.transform.GetChild(3).gameObject.SetActive(false);
+                StartScene.SetActive(false);
+                startTime = Time.time;
             }
         }else if(step == 0)
         {
-            StartText.text = "";
-            img.transform.GetChild(3).gameObject.SetActive(false);
-            SceneController.SetActive(true);
-            StartScene.SetActive(false);
-            //img.transform.GetChild(4).gameObject.SetActive(true);
-            Buttonnext.SetActive(true);
-            Buttonnext.GetComponentInChildren<Text>().text = "Continue";
-
-            skip = SceneControl.miss;
-
             video.Play();
             video.Pause();
+            SceneController.SetActive(true);
+            skip = SceneControl.miss;
+
+            if (Time.time - startTime > 3)
+            {
+                step++;
+            }            
         }
         else if (step == 1)
         {
-            //img.transform.GetChild(4).gameObject.SetActive(false);
             Buttonnext.SetActive(false);
-            //StartScene.SetActive(false);
             story.text = "";
-            //SceneController.SetActive(false);
             video.Play();
 
             if (video.isPlaying)
@@ -244,11 +246,11 @@ public class client : MonoBehaviour
         {
             if (!video.isPlaying)
             {
-                //Debug.Log(skip);
                 if(skip == true)
                 {
                     step = 0;
                     sc.PressA();
+                    startTime = Time.time;
                 }
                 else
                 {
@@ -288,6 +290,7 @@ public class client : MonoBehaviour
                 }
                 step++;
                 ButtonAB.SetActive(true);
+                startTime = Time.time;
             }
             /*else
             {
@@ -296,31 +299,45 @@ public class client : MonoBehaviour
         }
         else if (step == 5)
         {
-            string[] str = recvStr.Split(':');
-            if (str[0] == "A")
+            string[] str = recvStr.Split('=');
+            if (str[0] == "A:B")
             {
                 string[] str1 = recvStr.Split('=');
                 string[] num = str1[1].Split(':');
                 resultA.text = num[0];
                 resultB.text = num[1];
             }
+
+            float remainTime = 10 - (Time.time - startTime);
+            if(remainTime < 0)
+            {
+                step++;
+            }
             else
             {
-                if (str[0] == "go")
-                {
-                    go = "true:" + str[1];
-                    ButtonAB.gameObject.SetActive(false);
-                    recvStr = "scene start";
-                    resultA.text = "";
-                    resultB.text = "";
-                    step =  0;
-                }
+                time.text = ((int)(remainTime)).ToString() + " s";
             }
             /*else
             {
                 Debug.Log("Fail to load vote result.");
             }*/
         }
+        else if (step == 6)
+        {
+            string[] str = recvStr.Split(':');
+            
+            if (str[0] == "go")
+            {
+                go = "true:" + str[1];
+                ButtonAB.gameObject.SetActive(false);
+                recvStr = "scene start";
+                resultA.text = "";
+                resultB.text = "";
+                step = 0;
+                startTime = Time.time;
+            }
+        }
+
     }
 
     public void PressA()
