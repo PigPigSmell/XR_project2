@@ -174,6 +174,7 @@
     <Compile Include="Assets\Script\GameCamera.cs" />
     <Compile Include="Assets\Script\GameEnv.cs" />
     <Compile Include="Assets\Script\GameInput.cs" />
+    <Compile Include="Assets\Script\GamePanel.cs" />
     <Compile Include="Assets\Script\SceneControl.cs" />
     <Compile Include="Assets\Script\ball.cs" />
     <Compile Include="Assets\Script\change.cs" />
