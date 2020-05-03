@@ -16,6 +16,7 @@ public class SceneControl : MonoBehaviour
     public VideoPlayer video;
 
     static public bool miss;
+    static public int spendMinute;
 
     private int mode;
     //private StringBuilder story_data = new StringBuilder(); // Store the data read from Json
@@ -39,6 +40,7 @@ public class SceneControl : MonoBehaviour
 
         // Initialize
         mode = 0;
+        spendMinute = 0;
         miss = false;
         ShowInformation();
 
@@ -67,18 +69,19 @@ public class SceneControl : MonoBehaviour
 
     public void PressA()
     {
+        spendMinute += int.Parse((string)(data[mode]["path_cost"][0]));
         mode = Mathf.Abs(int.Parse((string)(data[mode]["option"][0])));
         ShowInformation();
     }
     public void PressB()
     {
+        spendMinute += int.Parse((string)(data[mode]["path_cost"][1]));
         mode = Mathf.Abs(int.Parse((string)(data[mode]["option"][1])));
         ShowInformation();
     }
 
     private void ShowInformation()
     {
-        //Debug.Log("mode: " + mode);
         // Store Story
         string filePath = path + "story" + mode.ToString() + ".json";
         StringBuilder story_data = new StringBuilder(); // Store the data read from Json
@@ -107,7 +110,6 @@ public class SceneControl : MonoBehaviour
         }
         else
         {
-            //Debug.Log(data[mode]["option"][0].ToString()[0]);
             char signA = data[mode]["option"][0].ToString()[0];
             char signB = data[mode]["option"][1].ToString()[0];
 

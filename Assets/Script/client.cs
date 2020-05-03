@@ -139,7 +139,7 @@ public class client : MonoBehaviour
     void Start()
     {
         sc = GameObject.Find("SceneManager").GetComponent<SceneControl>();
-
+        
         audio_source = GetComponent<AudioSource>();
         StartScene.SetActive(true);
         SceneController.SetActive(false);
@@ -343,10 +343,14 @@ public class client : MonoBehaviour
     public void PressA()
     {
         SocketSend("vote:A");
+        ButtonAB.transform.GetChild(0).GetComponent<Button>().interactable = false;
+        ButtonAB.transform.GetChild(1).GetComponent<Button>().interactable = false;
     }
     public void PressB()
     {
         SocketSend("vote:B");
+        ButtonAB.transform.GetChild(0).GetComponent<Button>().interactable = false;
+        ButtonAB.transform.GetChild(1).GetComponent<Button>().interactable = false;
     }
     public void temp_gameResult()
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class ball : MonoBehaviour
@@ -19,11 +20,13 @@ public class ball : MonoBehaviour
         StopAll();
         mode = 0;
         open = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         for (int i=0; i < vs.Length; i++)
         {
             if (Input.GetKeyDown(i.ToString()))
