@@ -15,7 +15,7 @@ public class SceneControl : MonoBehaviour
     public Text story;
     public VideoPlayer video;
 
-    static public bool miss;
+    static public int miss;
     static public int spendMinute;
 
     private int mode;
@@ -41,7 +41,7 @@ public class SceneControl : MonoBehaviour
         // Initialize
         mode = 0;
         spendMinute = 0;
-        miss = false;
+        miss = 0;
         ShowInformation();
 
         c = GameObject.Find("Manager").GetComponent<client>();
@@ -101,10 +101,10 @@ public class SceneControl : MonoBehaviour
         // audio setting
 
         // option description
-        miss = false;
+        miss = 0;
         if (int.Parse((string)(data[mode]["option"][0])) == 0) // win
         {
-            miss = true;
+            miss = 2; // end
             A.gameObject.SetActive(false);
             B.gameObject.SetActive(false);
         }
@@ -120,7 +120,7 @@ public class SceneControl : MonoBehaviour
             }
             else
             {
-                miss = true;
+                miss = 1;
                 //PressA();
             }
         }

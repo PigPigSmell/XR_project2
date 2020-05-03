@@ -54,7 +54,7 @@ public class client : MonoBehaviour
     private bool played = false;
     private int step = 0;
     private string press;
-    private bool skip;
+    private int skip;
 
     private float startTime;
     private float endTime;
@@ -225,7 +225,7 @@ public class client : MonoBehaviour
             video.Pause();
             SceneController.SetActive(true);
             skip = SceneControl.miss;
-
+            
             if (Time.time - startTime > 3)
             {
                 step++;
@@ -246,11 +246,15 @@ public class client : MonoBehaviour
         {
             if (!video.isPlaying)
             {
-                if(skip == true)
+                if(skip == 1)
                 {
                     step = 0;
                     sc.PressA();
                     startTime = Time.time;
+                }
+                else if(skip == 2)
+                {
+                    step = 10;
                 }
                 else
                 {
@@ -336,6 +340,11 @@ public class client : MonoBehaviour
                 step = 0;
                 startTime = Time.time;
             }
+        }
+        else
+        {
+            // end
+            story.text = "end";
         }
 
     }
