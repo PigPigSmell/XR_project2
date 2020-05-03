@@ -187,7 +187,11 @@ public class client : MonoBehaviour
             {
                 audio_source.PlayOneShot(welcome);
                 role = str[1];
-                StartText.text = "Your role is ... " + str[1];
+
+                //StartText.text = "your role is " + str[1];
+                img.transform.GetChild(2).gameObject.SetActive(false);
+                if (role == "good") img.transform.GetChild(5).gameObject.SetActive(true);
+                else img.transform.GetChild(6).gameObject.SetActive(true);
                 StartButton.GetComponentInChildren<Text>().text = "OK";
             }
             /*else
@@ -202,7 +206,9 @@ public class client : MonoBehaviour
                 audio_source.PlayOneShot(b_sound);
                 played = true;
             }
-            img.transform.GetChild(2).gameObject.SetActive(false);
+
+            if(role == "good") img.transform.GetChild(5).gameObject.SetActive(false);
+            else img.transform.GetChild(6).gameObject.SetActive(false);
             img.transform.GetChild(3).gameObject.SetActive(true);
 
             StartText.text = "loading...";

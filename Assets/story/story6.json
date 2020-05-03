@@ -9,11 +9,11 @@
   "option_description": "老師會在哪呢？",
   "option": [
     {
-      "name": "老師辦公室",
+      "name": "老師辦公室\n",
       "description": "先去老師辦公室找老師吧"
     },
     {
-      "name": "圖書館",
+      "name": "圖書館\n",
       "description": "老師會不會在圖書館開會呢"
     }
   ]

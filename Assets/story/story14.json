@@ -6,12 +6,12 @@
   "option_description": "要去哪裡找他？",
   "option": [
     {
-      "name": "土地公廟",
-      "description": "天啊，我真的是無從找起。去問問看土地公好了。"
+        "name": "土地公廟\n",
+        "description": "無從找起,去問土地公好了。"
     },
     {
-      "name": "系辦",
-      "description": "他應該是回去系辦了吧。"
+        "name": "系辦\n",
+        "description": "他應該是回去系辦了吧。"
     }
   ]
 }

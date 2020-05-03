@@ -1,5 +1,5 @@
 {
-  "description": "怎麼又沒有啊...請問土地公，能讓我退選的關鍵承辦人員又回系辦了嗎?(擲茭)",
+  "description": "怎麼又沒有啊...請問土地公，\n能讓我退選的關鍵承辦人員又回系辦了嗎?(擲茭)",
   "dialog": [
     {
       "who": "旁白",
@@ -9,12 +9,12 @@
   "option_description": "你打算怎麼辦呢？",
   "option": [
     {
-      "name": "系辦",
-      "description": "趕快去系辦!"
+        "name": "系辦\n",
+        "description": "趕快去系辦!"
     },
     {
-      "name": "圖書館",
-      "description": "不是的話，難道會去圖書館? 去找看看好了!"
+        "name": "圖書館\n",
+        "description": "不是的話，難道會去圖書館?"
     }
   ]
 }

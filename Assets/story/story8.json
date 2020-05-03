@@ -21,12 +21,12 @@
   "option_description": "接下來要去哪呢？",
   "option": [
     {
-      "name": "系辦",
+      "name": "系辦\n",
       "description": "接下來就是去系辦了吧"
     },
     {
-      "name": "餐廳",
-      "description": "肚子有點餓，去吃點東西好了"
+      "name": "餐廳\n",
+      "description": "肚子有點餓，去吃東西吧"
     }
   ]
 }

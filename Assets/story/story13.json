@@ -1,5 +1,5 @@
 {
-  "description": "老師簽完了，快點來給系辦蓋章。  系辦人員竟然不在... 我是要去哪裡",
+  "description": "老師簽完了，快點來給系辦蓋章。\n系辦人員竟然不在... 我是要去哪裡",
   "dialog": [
     {
       "who": "我",
@@ -13,12 +13,12 @@
   "option_description": "接下來要幹嘛呢？",
   "option": [
     {
-      "name": "教務處",
-      "description": "去教務處求情看看好了"
+        "name": "教務處\n",
+        "description": "去教務處求情看看好了"
     },
     {
-      "name": "土地公廟",
-      "description": "這個時間，感覺是沒救了，只能去土地公廟拜一下了"
+        "name": "土地公廟\n",
+        "description": "感覺只能去土地公廟拜一下了"
     }
   ]
 }
