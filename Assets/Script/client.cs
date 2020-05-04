@@ -384,6 +384,10 @@ public class client : MonoBehaviour
     {
         go = str;
     }
+    public void setStep(int n)
+    {
+        step = n;
+    }
 
     //程式退出則關閉連線
     void OnApplicationQuit()

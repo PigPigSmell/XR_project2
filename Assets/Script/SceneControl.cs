@@ -96,7 +96,7 @@ public class SceneControl : MonoBehaviour
 
         // video setting
         //video.url = "file://E:/tmp/" + data[mode]["video"];
-        //video.url = "Media/360/0.MP4";
+        video.url = "Media/360/0.MP4";
 
         // audio setting
 
