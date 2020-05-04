@@ -2,11 +2,11 @@
   "description": "剩下沒多少時間了，趕快起床跑停修!",
   "option": [
     {
-      "name": "教務處",
+      "name": "教務處\n",
       "description": "先去教務處吧!"
     },
     {
-      "name": "老師辦公室",
+      "name": "老師辦公室\n",
       "description": "先去找導師吧!"
     }
   ]

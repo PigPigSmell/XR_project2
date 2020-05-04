@@ -33,12 +33,12 @@
   "option_description": "承辦人員到底在哪？",
   "option": [
     {
-      "name": "餐廳",
-      "description": "餐廳比較近，先去那裡看看好了"
+      "name": "餐廳\n",
+      "description": "餐廳比較近，先去那裡好了"
     },
     {
-      "name": "土地公廟",
-      "description": "今天是初一，一定去拜拜了"
+        "name": "土地公廟\n",
+        "description": "今天是初一，一定去拜拜了"
     }
   ]
 }

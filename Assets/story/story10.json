@@ -1,5 +1,5 @@
 {
-  "description": "在系辦找到老師，但沒看到承辦人員，請老師幫忙簽名",
+  "description": "在系辦找到老師，但沒看到承辦人員，\n請老師幫忙簽名",
   "dialog": [
     {
       "who": "我",
@@ -21,12 +21,12 @@
   "option_description": "接下來要去哪？",
   "option": [
     {
-      "name": "教務處",
-      "description": "流程都跑完了，去交單子吧"
+       "name": "教務處\n",
+       "description": "流程都跑完了，去交單子吧"
     },
     {
-      "name": "餐廳",
-      "description": "肚子餓了，先去吃飯吧"
+       "name": "餐廳\n",
+       "description": "肚子餓了，先去吃飯吧"
     }
   ]
 }
