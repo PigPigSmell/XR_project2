@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SetTime : MonoBehaviour
 {
-    public Text currentTime;
+    public TextMeshProUGUI currentTime;
 
     private float startTime;
     private int minute;

@@ -8,7 +8,7 @@ using System.Threading;
 
 using UnityEngine.UI;
 using UnityEngine.Video;
-
+using TMPro;
 
 public class client : MonoBehaviour
 {
@@ -28,12 +28,16 @@ public class client : MonoBehaviour
     public Text GameResult_temp;
     private bool getGameResult = false;
     private string role;
-    public Text story;
+    public TextMeshProUGUI story;
 
-    public Text resultA;
-    public Text resultB;
-    public Text StartText;
-    public Text time;
+    public TextMeshProUGUI resultA;
+    public TextMeshProUGUI resultB;
+    public TextMeshProUGUI StartText;
+    public TextMeshProUGUI RoleText;
+    public TextMeshProUGUI time;
+    public GameObject Checklist;
+
+    public GameObject StoryBackGround;
 
     public VideoPlayer video;
 
@@ -139,13 +143,13 @@ public class client : MonoBehaviour
     void Start()
     {
         sc = GameObject.Find("SceneManager").GetComponent<SceneControl>();
-        
         audio_source = GetComponent<AudioSource>();
         StartScene.SetActive(true);
         SceneController.SetActive(false);
         GameController.SetActive(false);
         ButtonAB.SetActive(false);
         Buttonnext.SetActive(false);
+        StoryBackGround.SetActive(false);
         InitSocket();
         step = -5;
         video.Stop();
@@ -164,6 +168,7 @@ public class client : MonoBehaviour
         //Debug.Log(step);
         if (step == -5)
         {
+            Checklist.SetActive(false);
             StartButton.GetComponentInChildren<Text>().text = "Start";
             img.transform.GetChild(0).gameObject.SetActive(true);
         }
@@ -188,10 +193,7 @@ public class client : MonoBehaviour
                 audio_source.PlayOneShot(welcome);
                 role = str[1];
 
-                //StartText.text = "your role is " + str[1];
-                img.transform.GetChild(2).gameObject.SetActive(false);
-                if (role == "good") img.transform.GetChild(5).gameObject.SetActive(true);
-                else img.transform.GetChild(6).gameObject.SetActive(true);
+                RoleText.text = str[1];
                 StartButton.GetComponentInChildren<Text>().text = "OK";
             }
             /*else
@@ -207,8 +209,7 @@ public class client : MonoBehaviour
                 played = true;
             }
 
-            if(role == "good") img.transform.GetChild(5).gameObject.SetActive(false);
-            else img.transform.GetChild(6).gameObject.SetActive(false);
+            img.transform.GetChild(2).gameObject.SetActive(false);
             img.transform.GetChild(3).gameObject.SetActive(true);
 
             StartText.text = "loading...";
@@ -227,6 +228,8 @@ public class client : MonoBehaviour
             }
         }else if(step == 0)
         {
+            Checklist.SetActive(true);
+            StoryBackGround.SetActive(true);
             video.Play();
             video.Pause();
             SceneController.SetActive(true);
@@ -325,7 +328,7 @@ public class client : MonoBehaviour
             }
             else
             {
-                time.text = ((int)(remainTime)).ToString() + " s";
+                time.text = "還剩 " + ((int)(remainTime)).ToString() + " 秒";
             }
             /*else
             {
