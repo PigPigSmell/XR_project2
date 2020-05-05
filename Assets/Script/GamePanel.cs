@@ -22,6 +22,10 @@ public class GamePanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       panelText.text = "找到球共 " + counter.ToString() + " 次";
+        if (Input.GetMouseButtonDown(0))
+          {
+            AddCounter();
+          }
+              panelText.text = "找到球共 " + counter.ToString() + " 次";
     }
 }

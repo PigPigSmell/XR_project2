@@ -19,4 +19,12 @@ public class GameBall : MonoBehaviour
         }
         return coordinate;
     }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RandomlyTeleport();
+        }
+    }
 }

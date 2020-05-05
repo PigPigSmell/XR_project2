@@ -23,7 +23,7 @@ public class GameCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        angles.y += speedH * Input.GetAxis("Mouse X");
+        angles.y += speedH * Input.GetAxis("Mouse X");            
         angles.x -= speedV * Input.GetAxis("Mouse Y");
         //  yaw += speedH * Input.acceleration.x;
         //  pitch -= speedV * Input.acceleration.y;
