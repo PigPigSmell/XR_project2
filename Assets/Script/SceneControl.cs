@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -97,9 +97,11 @@ public class SceneControl : MonoBehaviour
 
         // video setting
         //video.url = "file://E:/tmp/" + data[mode]["video"];
+        
         //video.url = "Media/360/0.MP4";
         int i = int.Parse((string)data[mode]["video"]);
         video.clip = videoclips[i];
+        
         // audio setting
 
         // option description

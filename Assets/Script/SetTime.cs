@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SetTime : MonoBehaviour
 {
-    public Text currentTime;
+    public TextMeshProUGUI currentTime;
 
     private float startTime;
-    private int hours, minute;
+    private int minute;
+
+    client c;
 
     // Start is called before the first frame update
     void Start()
     {
         startTime = Time.time;
+        c = GameObject.Find("Manager").GetComponent<client>();
     }
 
     // Update is called once per frame
@@ -21,10 +25,13 @@ public class SetTime : MonoBehaviour
     {
         // Set time
         float spendTime = (Time.time - startTime) / 60;
-        minute = (int)(spendTime) + 30 + SceneControl.spendMinute;
-        hours = (int)(minute / 60) + 15;
-        minute %= 60;
+        minute = 90 - ((int)(spendTime) + SceneControl.spendMinute);
         
-        currentTime.text = hours.ToString() + " : " + minute.ToString();
+        currentTime.text = minute.ToString();
+
+        if(minute <= 0)
+        {
+            c.setStep(7);
+        }
     }
 }
