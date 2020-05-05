@@ -197,9 +197,9 @@ public class client : MonoBehaviour
             {
                 audio_source.PlayOneShot(welcome);
                 role = str[1];
-
-                RoleText.text = str[1];
-                StartButton.GetComponentInChildren<Text>().text = "OK";
+                if(str[1] == "good") RoleText.text ="大雄";
+                else RoleText.text = "胖虎";
+                    StartButton.GetComponentInChildren<Text>().text = "OK";
             }
             /*else
             {
@@ -216,7 +216,7 @@ public class client : MonoBehaviour
 
             img.transform.GetChild(2).gameObject.SetActive(false);
             img.transform.GetChild(3).gameObject.SetActive(true);
-
+            RoleText.text = "";
             StartText.text = "loading...";
 
             StartButton.SetActive(false);
@@ -238,9 +238,10 @@ public class client : MonoBehaviour
         }
         else if(step == 0)
         {
-            Checklist.SetActive(true);
+            
             StoryBackGround.SetActive(true);
-            video.Play();
+            Checklist.SetActive(true);
+            video.Play(); 
             video.Pause();
             SceneController.SetActive(true);
             skip = SceneControl.miss;
@@ -254,6 +255,8 @@ public class client : MonoBehaviour
         {
             Buttonnext.SetActive(false);
             story.text = "";
+            StoryBackGround.SetActive(false);
+            Checklist.SetActive(false);
             video.Play();
 
             if (video.isPlaying)
