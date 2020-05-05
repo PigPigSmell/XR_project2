@@ -5,14 +5,14 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
-
+using TMPro;
 using LitJson;
 
 public class SceneControl : MonoBehaviour
 {
     public Button A;
     public Button B;
-    public Text story;
+    public TextMeshProUGUI story;
     public VideoPlayer video;
 
     static public int miss;
@@ -142,11 +142,11 @@ public class SceneControl : MonoBehaviour
 
         if(i == 0)
         {
-            A.GetComponentInChildren<Text>().text = str + (string)(story_i["option"][0]["name"]) + " : " + (string)(story_i["option"][0]["description"]);
+            A.GetComponentInChildren<TextMeshProUGUI>().text = str + (string)(story_i["option"][0]["name"]) + " : " + (string)(story_i["option"][0]["description"]);
         }
         else if (i == 1)
         {
-            B.GetComponentInChildren<Text>().text = str + (string)(story_i["option"][1]["name"]) + " : " + (string)(story_i["option"][1]["description"]);
+            B.GetComponentInChildren<TextMeshProUGUI>().text = str + (string)(story_i["option"][1]["name"]) + " : " + (string)(story_i["option"][1]["description"]);
         }
     }
 
