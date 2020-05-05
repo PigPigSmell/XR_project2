@@ -21,7 +21,7 @@ public class client : MonoBehaviour
     public Image Endimg;
     public AudioSource BGM;
     public GameObject Buttonnext;
-    public GameObject EndScene;
+    //public GameObject EndScene;
     //
     AudioSource audio_source;
     public AudioClip welcome;
@@ -152,7 +152,7 @@ public class client : MonoBehaviour
         ButtonAB.SetActive(false);
         
         Buttonnext.SetActive(false);
-        EndScene.SetActive(false);
+        //EndScene.SetActive(false);
         StoryBackGround.SetActive(false);
         
         InitSocket();
@@ -374,7 +374,7 @@ public class client : MonoBehaviour
             Debug.Log(step);
             BGM.Pause();
             StartScene.SetActive(false);
-            EndScene.SetActive(true);
+            //EndScene.SetActive(true);
             ButtonAB.SetActive(false);
             Endimg.transform.GetChild(0).gameObject.SetActive(true);
         }
