@@ -1,0 +1,23 @@
+{
+  "description": "哎，時間不夠了，只好請土地公保佑我的成績了.....",
+  "dialog": [
+    {
+      "who": "土地公",
+      "sentence": "看在你這麼誠心的份上，我就幫你一把吧！"
+    },
+   
+    {
+      "who": "旁白",
+      "sentence": "(突發事件：因為新冠狀病毒影響，停修時間延長)"
+    }
+    
+  ],
+  "state": "Next day",
+  "option_description": "你打算怎麼辦呢？",
+  "option": [
+    {
+      "name": "系辦",
+      "description": ""
+    }
+  ]
+}

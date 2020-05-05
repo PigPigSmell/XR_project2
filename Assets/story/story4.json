@@ -1,0 +1,24 @@
+{
+  "description": "教務處比較近，先來這吧。",
+  "dialog": [
+    {
+      "who": "我",
+      "sentence": "請幫我蓋個章!"
+    },
+    {
+      "who": "教務處小姐",
+      "sentence": "同學，你要先拿給老師和系辦蓋章喔。\n蓋完再拿回來。"
+    }
+  ],
+  "option_description": "接下來要去哪裡呢？",
+  "option": [
+    {
+      "name": "系辦\n",
+      "description": "先去系辦蓋章好了"
+    },
+    {
+      "name": "老師辦公室\n",
+      "description": "不知道老師在不在辦公室"
+    }
+  ]
+}

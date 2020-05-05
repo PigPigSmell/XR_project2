@@ -1,0 +1,23 @@
+{
+  "description": "telling a story",
+  "dialog": [
+    {
+      "who": "Person A",
+      "sentence": "he said something"
+    },
+    {
+      "who": "Person B",
+      "sentence": "She said something"
+    }
+  ],
+  "option_description": "what do you want?",
+  "option": [{
+      "name": "option 1",
+      "description": "why choose 1"
+    },
+    {
+      "name": "option 2",
+      "description": "why choose 2"
+    }
+  ]
+}

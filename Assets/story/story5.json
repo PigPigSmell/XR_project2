@@ -1,0 +1,17 @@
+{
+  "description": "不知道老師在不在辦公室.....？",
+  "dialog": [
+    
+  ],
+  "option_description": "老師好像不在，他會去哪裡呢?",
+  "option": [
+    {
+      "name": "圖書館\n",
+      "description": "老師好像有時候會去圖書館查資料"
+    },
+    {
+      "name": "系辦\n",
+      "description": "去系辦問問老師去哪裡吧。"
+    }
+  ]
+}
