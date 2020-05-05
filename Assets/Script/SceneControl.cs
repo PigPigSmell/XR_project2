@@ -14,6 +14,7 @@ public class SceneControl : MonoBehaviour
     public Button B;
     public Text story;
     public VideoPlayer video;
+    public VideoClip[] videoclips = new VideoClip[30];
 
     static public int miss;
     static public int spendMinute;
@@ -97,7 +98,8 @@ public class SceneControl : MonoBehaviour
         // video setting
         //video.url = "file://E:/tmp/" + data[mode]["video"];
         //video.url = "Media/360/0.MP4";
-
+        int i = int.Parse((string)data[mode]["video"]);
+        video.clip = videoclips[i];
         // audio setting
 
         // option description
