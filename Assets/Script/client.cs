@@ -18,8 +18,10 @@ public class client : MonoBehaviour
     public GameObject ButtonAB;
     public GameObject StartButton;
     public Image img;
+    public Image Endimg;
     public AudioSource BGM;
     public GameObject Buttonnext;
+    public GameObject EndScene;
     //
     AudioSource audio_source;
     public AudioClip welcome;
@@ -148,8 +150,11 @@ public class client : MonoBehaviour
         SceneController.SetActive(false);
         GameController.SetActive(false);
         ButtonAB.SetActive(false);
+        
         Buttonnext.SetActive(false);
+        EndScene.SetActive(false);
         StoryBackGround.SetActive(false);
+        
         InitSocket();
         step = -5;
         video.Stop();
@@ -215,6 +220,9 @@ public class client : MonoBehaviour
             StartText.text = "loading...";
 
             StartButton.SetActive(false);
+            ////////////////
+            //step = 7; ///test end
+            ///////////////
             
             if (recvStr == "scene start")
             {
@@ -225,8 +233,10 @@ public class client : MonoBehaviour
                 img.transform.GetChild(3).gameObject.SetActive(false);
                 StartScene.SetActive(false);
                 startTime = Time.time;
+                
             }
-        }else if(step == 0)
+        }
+        else if(step == 0)
         {
             Checklist.SetActive(true);
             StoryBackGround.SetActive(true);
@@ -353,9 +363,18 @@ public class client : MonoBehaviour
         else
         {
             // end
+            
             story.text = "end";
         }
-
+        if(step == 7)
+        {
+            Debug.Log(step);
+            BGM.Pause();
+            StartScene.SetActive(false);
+            EndScene.SetActive(true);
+            ButtonAB.SetActive(false);
+            Endimg.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     public void PressA()
