@@ -5816,36 +5816,34 @@ MonoBehaviour:
   story: {fileID: 1507333463}
   video: {fileID: 727647551}
   videoclips:
+  - {fileID: 32900000, guid: 2b91fe2aa44a6574daabec8eded87bce, type: 3}
+  - {fileID: 32900000, guid: 1347e7ddc2ba0f243a3544d782f2f0b0, type: 3}
+  - {fileID: 32900000, guid: dbba649b6b64bf840857fc63ac271a66, type: 3}
   - {fileID: 32900000, guid: 1347e7ddc2ba0f243a3544d782f2f0b0, type: 3}
   - {fileID: 32900000, guid: e773b1c0e95b18d4dbed5a7bdbdc6a6e, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 32900000, guid: 1678fecef9d210a43973d8e5074d1d26, type: 3}
-  - {fileID: 32900000, guid: c318009da07e91d43b412fe76e664673, type: 3}
-  - {fileID: 32900000, guid: a7a54c2ac5efb9945b4f33889f19e6d8, type: 3}
-  - {fileID: 32900000, guid: 30ed77fda9a3c9747a9bd23a30487d88, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 32900000, guid: f215951dd3b555c4e948de77d5d6aa23, type: 3}
+  - {fileID: 32900000, guid: 26919d56d14a083439a163f53d082469, type: 3}
+  - {fileID: 32900000, guid: f215951dd3b555c4e948de77d5d6aa23, type: 3}
+  - {fileID: 32900000, guid: 18da67b6c5e67e2448c360da4998ec6e, type: 3}
+  - {fileID: 32900000, guid: 3af57a0262db6524b91e9cf94a4e27ec, type: 3}
+  - {fileID: 32900000, guid: 3af57a0262db6524b91e9cf94a4e27ec, type: 3}
+  - {fileID: 32900000, guid: 1ed2bdb508d21dd4a9719012fe3c7792, type: 3}
+  - {fileID: 32900000, guid: a8b75271503dc4e4cbb591906a06055e, type: 3}
+  - {fileID: 32900000, guid: cd08a05fe7caf9e41bb83c53f0cd2ccd, type: 3}
+  - {fileID: 32900000, guid: 2c18b57f1e82aa343969004860169ade, type: 3}
+  - {fileID: 32900000, guid: 643e5a7473b69a0499a44cad37bcd310, type: 3}
+  - {fileID: 32900000, guid: 6d4d63fd3a81cb740a15f5cf4ebc7d05, type: 3}
+  - {fileID: 32900000, guid: 2c18b57f1e82aa343969004860169ade, type: 3}
+  - {fileID: 32900000, guid: 8d519b7e4387f6a4290540e343cebc0b, type: 3}
+  - {fileID: 32900000, guid: 86506a70f6ca64347b210a603654b2b8, type: 3}
+  - {fileID: 32900000, guid: 0c061947fb3f05a459be75ee5fe058e2, type: 3}
+  - {fileID: 32900000, guid: 7e2691d3f0c51b94f8fd9110086a360b, type: 3}
+  - {fileID: 32900000, guid: e7bf3ff48689d6f48a5bf4c8ab725c4c, type: 3}
+  - {fileID: 32900000, guid: 7e2691d3f0c51b94f8fd9110086a360b, type: 3}
+  - {fileID: 32900000, guid: 6d4d63fd3a81cb740a15f5cf4ebc7d05, type: 3}
+  - {fileID: 32900000, guid: 1fd074c1f5f9dcc4294ea6352de5c166, type: 3}
+  - {fileID: 32900000, guid: 189e594a3d91bba49972195fccb874e2, type: 3}
+  - {fileID: 32900000, guid: 080fe23740c2d9e4fb255af247818737, type: 3}
   teacher: {fileID: 1589859584}
   department: {fileID: 1834773724}
   office: {fileID: 33242013}
@@ -6664,7 +6662,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126709701}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 0.15453319, y: 0.13621944, z: 0.15453322}
   m_Children:
   - {fileID: 1515390874}
@@ -6673,7 +6671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.4, y: 3.2}
+  m_AnchoredPosition: {x: -0.4, y: 12.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2126709704

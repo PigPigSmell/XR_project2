@@ -67,6 +67,21 @@ public class ToJson : MonoBehaviour
         file.Close();
     }
 
+    public void WriteGameIdx()
+    {
+        GameResult var = new GameResult();
+
+        var.gameIdx = SceneControl.GameIdx;
+        var.gameResult = 0;
+
+        string saveString = JsonUtility.ToJson(var);
+
+        //write to Josn
+        StreamWriter file = new StreamWriter(System.IO.Path.Combine(Application.streamingAssetsPath, "GameResult.json"));
+        file.Write(saveString);
+        file.Close();
+    }
+
     public void LoadData()
     {
         //讀取json檔案並轉存成文字格式
@@ -120,7 +135,7 @@ public class ToJson : MonoBehaviour
         var.check_department = "- 系辦蓋章";
         var.check_office = "- 教務處蓋章";
 
-    string saveString = JsonUtility.ToJson(var);
+        string saveString = JsonUtility.ToJson(var);
 
         //write to Josn
         StreamWriter file = new StreamWriter(System.IO.Path.Combine(Application.streamingAssetsPath, "Variables.json"));
@@ -165,6 +180,7 @@ public class ToJson : MonoBehaviour
     public class GameResult
     {
         public int gameResult;
+        public int gameIdx;
     }
 
 }

@@ -267,10 +267,11 @@ public class client : MonoBehaviour
         {
             
             StoryBackGround.SetActive(true);
+            SceneController.SetActive(true);
+            story.gameObject.SetActive(true);
             Checklist.SetActive(true);
             video.Play(); 
             video.Pause();
-            SceneController.SetActive(true);
             skip = SceneControl.miss;
             
             if (Time.time - startTime > 3)
@@ -327,6 +328,7 @@ public class client : MonoBehaviour
                 // GameController.SetActive(true);
                 getGameResult = true;
                 toJ.WriteData();
+                toJ.WriteGameIdx();
                 SceneManager.LoadScene(1);
             }
             // Sent game result
@@ -353,7 +355,6 @@ public class client : MonoBehaviour
                 {
                     step++;
                     getGameResult = false;
-                    //video.Play();
                 }
             }
         }
@@ -362,6 +363,7 @@ public class client : MonoBehaviour
             video.Pause();
             // Recieve winner information
             string[] str = recvStr.Split(':');
+            story.gameObject.SetActive(false);
             if (str[0] == "winner")
             {
                 if (str[1] == role)

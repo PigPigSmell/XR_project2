@@ -14,7 +14,7 @@ public class SceneControl : MonoBehaviour
     public Button B;
     public TextMeshProUGUI story;
     public VideoPlayer video;
-    public VideoClip[] videoclips = new VideoClip[30];
+    public VideoClip[] videoclips = new VideoClip[28];
 
     // Check List
     public TextMeshProUGUI teacher;
@@ -36,6 +36,8 @@ public class SceneControl : MonoBehaviour
     static public string check_teacher;
     static public string check_department;
     static public string check_office;
+
+    static public int GameIdx;
     
     client c;
 
@@ -116,11 +118,7 @@ public class SceneControl : MonoBehaviour
         
         // story description
         story.text = (string)(story_i["description"]);
-
-        // video setting
-        //video.url = "file://E:/tmp/" + data[mode]["video"];
         
-        //video.url = "Media/360/0.MP4";
         int i = int.Parse((string)data[mode]["video"]);
         video.clip = videoclips[i];
         
@@ -147,13 +145,14 @@ public class SceneControl : MonoBehaviour
             else
             {
                 miss = 1;
-                //PressA();
             }
         }
 
         teacher.text = check_teacher;
         department.text = check_department;
         office.text = check_office;
+
+        GameIdx = (int)(data[mode]["game_env"]);
     }
 
     private void ShowButton(int i, char sign)
@@ -187,7 +186,6 @@ public class SceneControl : MonoBehaviour
 
         for(int i=0; i < listLen; i++)
         {
-            //Debug.Log("**" + int.Parse((string)(data[mode]["check_list"][i])));
             if((int)(data[mode]["check_list"][i]) == 0)
             {
                 check_teacher = "+ 老師簽名";
