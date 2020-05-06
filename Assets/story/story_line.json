@@ -6,7 +6,8 @@
 		"video": "0",
 		"story": "story0.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": []
 	},
 	{
 		"position": "1",
@@ -15,7 +16,8 @@
 		"video": "1",
 		"story": "story1.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": []
 	},
 	{
 		"position": "2",
@@ -24,7 +26,8 @@
 		"video": "2",
 		"story": "story2.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": []
 	},
 	{
 		"position": "3",
@@ -33,7 +36,8 @@
 		"video": "3",
 		"story": "story3.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": []
 	},
 	{
 		"position": "4",
@@ -42,7 +46,8 @@
 		"video": "4",
 		"story": "story4.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": []
 	},
 	{
 		"position": "5",
@@ -51,7 +56,8 @@
 		"video": "5",
 		"story": "story5.json",
 		"music": "",
-		"game_env": 1
+		"game_env": 1,
+		"check_list": []
 	},
 	{
 		"position": "6",
@@ -60,7 +66,8 @@
 		"video": "6",
 		"story": "story6.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": [1]
 	},
 	{
 		"position": "7",
@@ -69,7 +76,8 @@
 		"video": "7",
 		"story": "story7.json",
 		"music": "",
-		"game_env": 1
+		"game_env": 1,
+		"check_list": []
 	},
 	{
 		"position": "8",
@@ -78,7 +86,8 @@
 		"video": "8",
 		"story": "story8.json",
 		"music": "",
-		"game_env": 3
+		"game_env": 3,
+		"check_list": [0]
 	},
 	{
 		"position": "9",
@@ -87,7 +96,8 @@
 		"video": "9",
 		"story": "story9.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": [0]
 	},
 	{
 		"position": "10",
@@ -96,7 +106,8 @@
 		"video": "10",
 		"story": "story10.json",
 		"music": "",
-		"game_env": 1
+		"game_env": 1,
+		"check_list": [0]
 	},
 	{
 		"position": "11",
@@ -105,7 +116,8 @@
 		"video": "11",
 		"story": "story11.json",
 		"music": "",
-		"game_env": 2
+		"game_env": 2,
+		"check_list": []
 	},
 	{
 		"position": "12",
@@ -114,7 +126,8 @@
 		"video": "12",
 		"story": "story12.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": [0]
 	},
 	{
 		"position": "13",
@@ -123,7 +136,8 @@
 		"video": "13",
 		"story": "story13.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": []
 	},
 	{
 		"position": "14",
@@ -132,7 +146,8 @@
 		"video": "14",
 		"story": "story14.json",
 		"music": "",
-		"game_env": 6
+		"game_env": 6,
+		"check_list": []
 	},
 	{
 		"position": "15",
@@ -141,7 +156,8 @@
 		"video": "15",
 		"story": "story15.json",
 		"music": "",
-		"game_env": 5
+		"game_env": 5,
+		"check_list": []
 	},
 	{
 		"position": "16",
@@ -150,7 +166,8 @@
 		"video": "16",
 		"story": "story16.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": [2]
 	},
 	{
 		"position": "17",
@@ -159,7 +176,8 @@
 		"video": "17",
 		"story": "story17.json",
 		"music": "",
-		"game_env": 0
+		"game_env": 0,
+		"check_list": []
 	},
 	{
 		"position": "18",
@@ -168,7 +186,8 @@
 		"video": "18",
 		"story": "story18.json",
 		"music": "",
-		"game_env": 3
+		"game_env": 3,
+		"check_list": []
 	},
 	{
 		"position": "19",
@@ -177,7 +196,8 @@
 		"video": "19",
 		"story": "story19.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": [1, 2]
 	},
 	{
 		"position": "20",
@@ -186,7 +206,8 @@
 		"video": "20",
 		"story": "story20.json",
 		"music": "",
-		"game_env": 5
+		"game_env": 5,
+		"check_list": []
 	},
 	{
 		"position": "21",
@@ -195,7 +216,8 @@
 		"video": "21",
 		"story": "story21.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": [1]
 	},
 	{
 		"position": "22",
@@ -204,7 +226,8 @@
 		"video": "22",
 		"story": "story22.json",
 		"music": "",
-		"game_env": 5
+		"game_env": 5,
+		"check_list": [3]
 	},
 	{
 		"position": "23",
@@ -213,7 +236,8 @@
 		"video": "23",
 		"story": "story23.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": [1]
 	},
 	{
 		"position": "24",
@@ -222,7 +246,8 @@
 		"video": "24",
 		"story": "story24.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": [2]
 	},
 	{
 		"position": "25",
@@ -231,7 +256,8 @@
 		"video": "25",
 		"story": "story25.json",
 		"music": "",
-		"game_env": 4
+		"game_env": 4,
+		"check_list": []
 	},
 	{
 		"position": "26",
@@ -240,7 +266,8 @@
 		"video": "26",
 		"story": "story26.json",
 		"music": "",
-		"game_env": 0
+		"game_env": 0,
+		"check_list": [1]
 	},
 	{
 		"position": "27",
@@ -249,6 +276,7 @@
 		"video": "27",
 		"story": "story27.json",
 		"music": "",
-		"game_env": 2
+		"game_env": 2,
+		"check_list": [1]
 	}
 ]
