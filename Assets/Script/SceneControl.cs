@@ -21,6 +21,8 @@ public class SceneControl : MonoBehaviour
     public TextMeshProUGUI department;
     public TextMeshProUGUI office;
 
+    public GameObject environment;
+
 
     //private StringBuilder story_data = new StringBuilder(); // Store the data read from Json
     private string story_line = "Assets/story/story_line.json";
@@ -55,6 +57,7 @@ public class SceneControl : MonoBehaviour
             story_data.Append(sr.ReadToEnd());// read all data
         }
         data = JsonMapper.ToObject(story_data.ToString());
+        
 
         // Initialize
         mode = ToJson.Data.mode;
@@ -128,7 +131,18 @@ public class SceneControl : MonoBehaviour
         miss = 0;
         if (int.Parse((string)(data[mode]["option"][0])) == 0) // win
         {
-            miss = 2; // end
+            if((string)(string)(data[mode]["option"][0]) == "+0")
+            {
+                miss = 2; // win
+            }else if((string)(string)(data[mode]["option"][0]) == "-0")
+            {
+                miss = 3; // lose
+            }
+            else
+            {
+                miss = 4; //special
+            }
+            // end
             A.gameObject.SetActive(false);
             B.gameObject.SetActive(false);
         }
@@ -200,7 +214,12 @@ public class SceneControl : MonoBehaviour
             }
         }
     }
-
+    /*
+    public void Rotation()
+    {
+        environment.transform.rotation = ;
+    }
+    */
     private void EndGame()
     {
         story.text = "End";

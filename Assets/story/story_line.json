@@ -7,7 +7,8 @@
 		"story": "story0.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": []
+		"check_list": [],
+		"rotation": [0, 190.777, -31.339]  
 	},
 	{
 		"position": "1",
@@ -17,7 +18,8 @@
 		"story": "story1.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": []
+		"check_list": [],
+		"rotation": [158.791, 94.577, 180.178] 
 	},
 	{
 		"position": "2",
@@ -27,7 +29,8 @@
 		"story": "story2.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": []
+		"check_list": [],
+		"rotation": [193.56, -95.604, 168.768]
 	},
 	{
 		"position": "3",
@@ -37,7 +40,8 @@
 		"story": "story3.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": []
+		"check_list": [],
+		"rotation": [193.56, -95.604, 168.768]
 	},
 	{
 		"position": "4",
@@ -47,7 +51,8 @@
 		"story": "story4.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": []
+		"check_list": [],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "5",
@@ -57,7 +62,8 @@
 		"story": "story5.json",
 		"music": "",
 		"game_env": 1,
-		"check_list": []
+		"check_list": [],
+		"rotation": [153.254, -101.84, 182.781]
 	},
 	{
 		"position": "6",
@@ -67,7 +73,8 @@
 		"story": "story6.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": [1]
+		"check_list": [1],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "7",
@@ -77,7 +84,8 @@
 		"story": "story7.json",
 		"music": "",
 		"game_env": 1,
-		"check_list": []
+		"check_list": [],
+		"rotation": [153.254, -101.84, 182.781]
 	},
 	{
 		"position": "8",
@@ -87,7 +95,8 @@
 		"story": "story8.json",
 		"music": "",
 		"game_env": 3,
-		"check_list": [0]
+		"check_list": [0],
+		"rotation": [158.791, 94.577, 180.178] 
 	},
 	{
 		"position": "9",
@@ -97,7 +106,8 @@
 		"story": "story9.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": [0]
+		"check_list": [0],
+		"rotation": [158.791, 94.577, 180.178] 
 	},
 	{
 		"position": "10",
@@ -107,7 +117,8 @@
 		"story": "story10.json",
 		"music": "",
 		"game_env": 1,
-		"check_list": [0]
+		"check_list": [0],
+		"rotation": [155.645, 266.25, 177.687] 
 	},
 	{
 		"position": "11",
@@ -117,7 +128,8 @@
 		"story": "story11.json",
 		"music": "",
 		"game_env": 2,
-		"check_list": []
+		"check_list": [],
+		"rotation": [145.254, -79.97501, 196.29] 
 	},
 	{
 		"position": "12",
@@ -127,7 +139,8 @@
 		"story": "story12.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": [0]
+		"check_list": [0],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "13",
@@ -137,7 +150,8 @@
 		"story": "story13.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": []
+		"check_list": [],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "14",
@@ -147,7 +161,8 @@
 		"story": "story14.json",
 		"music": "",
 		"game_env": 6,
-		"check_list": []
+		"check_list": [],
+		"rotation": [150.123, -67.832, 202.637]
 	},
 	{
 		"position": "15",
@@ -157,7 +172,8 @@
 		"story": "story15.json",
 		"music": "",
 		"game_env": 5,
-		"check_list": []
+		"check_list": [],
+		"rotation": [158.791, -94.577, 180.178]
 	},
 	{
 		"position": "16",
@@ -167,7 +183,8 @@
 		"story": "story16.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": [2]
+		"check_list": [2],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "17",
@@ -177,7 +194,8 @@
 		"story": "story17.json",
 		"music": "",
 		"game_env": 0,
-		"check_list": []
+		"check_list": [],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "18",
@@ -187,7 +205,8 @@
 		"story": "story18.json",
 		"music": "",
 		"game_env": 3,
-		"check_list": []
+		"check_list": [],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "19",
@@ -197,7 +216,8 @@
 		"story": "story19.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": [1, 2]
+		"check_list": [1, 2],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "20",
@@ -207,7 +227,8 @@
 		"story": "story20.json",
 		"music": "",
 		"game_env": 5,
-		"check_list": []
+		"check_list": [],
+		"rotation": [158.791, -94.577, 180.178]
 	},
 	{
 		"position": "21",
@@ -217,17 +238,19 @@
 		"story": "story21.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": [1]
+		"check_list": [1],
+		"rotation": [158.791, 94.577, 180.178]		
 	},
 	{
 		"position": "22",
-		"option": ["-0", "-0"],
+		"option": ["0", "0"],
 		"path_cost": ["0"],
 		"video": "22",
 		"story": "story22.json",
 		"music": "",
 		"game_env": 5,
-		"check_list": [3]
+		"check_list": [3],
+		"rotation": [159.791, -76.6350, 186.577]
 	},
 	{
 		"position": "23",
@@ -237,7 +260,8 @@
 		"story": "story23.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": [1]
+		"check_list": [1],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "24",
@@ -247,7 +271,8 @@
 		"story": "story24.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": [2]
+		"check_list": [2],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "25",
@@ -257,7 +282,8 @@
 		"story": "story25.json",
 		"music": "",
 		"game_env": 4,
-		"check_list": []
+		"check_list": [],
+		"rotation": [158.791, 94.577, 180.178]
 	},
 	{
 		"position": "26",
@@ -267,7 +293,8 @@
 		"story": "story26.json",
 		"music": "",
 		"game_env": 0,
-		"check_list": [1]
+		"check_list": [1],
+		"rotation": [150.213, -94.5449, 180.201]
 	},
 	{
 		"position": "27",
@@ -277,6 +304,7 @@
 		"story": "story27.json",
 		"music": "",
 		"game_env": 2,
-		"check_list": [1]
+		"check_list": [1],
+		"rotation": [158.791, 94.577, 180.178]
 	}
 ]

@@ -23,7 +23,7 @@ public class client : MonoBehaviour
     public GameObject Buttonnext;
     public GameObject Checklist;
     public GameObject StoryBackGround;
-
+    public GameObject EndScene;
     [Header("Image")]
     public Image img;
     public Image Endimg;
@@ -163,7 +163,6 @@ public class client : MonoBehaviour
         InitSocket();
         sc = GameObject.Find("SceneManager").GetComponent<SceneControl>();
         toJ = GameObject.Find("enviroment").GetComponent<ToJson>();
-
         
         audio_source = GetComponent<AudioSource>();
         video.Stop();
@@ -174,6 +173,7 @@ public class client : MonoBehaviour
         GameController.SetActive(ToJson.Data.GameController);
         ButtonAB.SetActive(ToJson.Data.ButtonAB);
         Buttonnext.SetActive(ToJson.Data.Buttonnext);
+        EndScene.SetActive(false);
         step = ToJson.Data.step;
         played = ToJson.Data.played;
         skip = ToJson.Data.skip;
@@ -197,7 +197,7 @@ public class client : MonoBehaviour
             step = 7;
         }
 
-        //Debug.Log(step);
+        Debug.Log(step);
         if (step == -5)
         {
             Checklist.SetActive(false);
@@ -248,7 +248,7 @@ public class client : MonoBehaviour
 
             StartButton.SetActive(false);
             ////////////////
-            //step = 7; ///test end
+            step = 7; ///test end
             ///////////////
             
             if (recvStr == "scene start")
@@ -309,11 +309,11 @@ public class client : MonoBehaviour
                     sc.PressA();
                     startTime = Time.time;
                 }
-                else if(skip == 2)
+                else if(skip >= 2)
                 {
-                    step = 10;
+                    step = 7;
                 }
-                else
+                else if(skip == 0)
                 {
                     step++;
                 }
@@ -436,11 +436,23 @@ public class client : MonoBehaviour
             //Debug.Log(step);
             BGM.Pause();
             StartScene.SetActive(false);
-            //EndScene.SetActive(true);
             ButtonAB.SetActive(false);
-            Endimg.transform.GetChild(0).gameObject.SetActive(true);
+            EndScene.SetActive(true);
+            if (skip == 2)
+            {
+                Endimg.transform.GetChild(0).gameObject.SetActive(true);
+            }else if(skip == 3)
+            {
+                Endimg.transform.GetChild(1).gameObject.SetActive(true);
+            }else if(skip == 4)
+            {
+                Endimg.transform.GetChild(2).gameObject.SetActive(true);
+            }
+            
 
             sc.CheckList();
+
+
         }
     }
 
