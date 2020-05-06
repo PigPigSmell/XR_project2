@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 //引入庫
 using System.Net;
@@ -21,7 +21,7 @@ public class client : MonoBehaviour
     public Image Endimg;
     public AudioSource BGM;
     public GameObject Buttonnext;
-    public GameObject EndScene;
+    //public GameObject EndScene;
     //
     AudioSource audio_source;
     public AudioClip welcome;
@@ -152,7 +152,7 @@ public class client : MonoBehaviour
         ButtonAB.SetActive(false);
         
         Buttonnext.SetActive(false);
-        EndScene.SetActive(false);
+        //EndScene.SetActive(false);
         StoryBackGround.SetActive(false);
         
         InitSocket();
@@ -174,14 +174,14 @@ public class client : MonoBehaviour
         if (step == -5)
         {
             Checklist.SetActive(false);
-            StartButton.GetComponentInChildren<Text>().text = "Start";
+            StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "";
             img.transform.GetChild(0).gameObject.SetActive(true);
         }
         else if (step == -4)
         {
             img.transform.GetChild(0).gameObject.SetActive(false);
             img.transform.GetChild(1).gameObject.SetActive(true);
-            StartButton.GetComponentInChildren<Text>().text = "Continue";
+            StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "Continue";
         }
         else if (step == -3)
         {
@@ -199,7 +199,7 @@ public class client : MonoBehaviour
                 role = str[1];
                 if(str[1] == "good") RoleText.text ="大雄";
                 else RoleText.text = "胖虎";
-                    StartButton.GetComponentInChildren<Text>().text = "OK";
+                    StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "OK";
             }
             /*else
             {
@@ -240,7 +240,7 @@ public class client : MonoBehaviour
         {
             
             StoryBackGround.SetActive(true);
-            Checklist.SetActive(true);
+            
             video.Play(); 
             video.Pause();
             SceneController.SetActive(true);
@@ -256,7 +256,7 @@ public class client : MonoBehaviour
             Buttonnext.SetActive(false);
             story.text = "";
             StoryBackGround.SetActive(false);
-            Checklist.SetActive(false);
+            Checklist.SetActive(true);
             video.Play();
 
             if (video.isPlaying)
@@ -286,6 +286,7 @@ public class client : MonoBehaviour
         }
         else if (step == 3)
         {
+	    Checklist.SetActive(false);
             GameController.SetActive(true);
 
             // Sent game result
@@ -374,7 +375,7 @@ public class client : MonoBehaviour
             Debug.Log(step);
             BGM.Pause();
             StartScene.SetActive(false);
-            EndScene.SetActive(true);
+            //EndScene.SetActive(true);
             ButtonAB.SetActive(false);
             Endimg.transform.GetChild(0).gameObject.SetActive(true);
         }
