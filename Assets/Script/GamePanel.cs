@@ -40,6 +40,6 @@ public class GamePanel : MonoBehaviour
         {
             AddCounter();
         }
-        panelText.text = "找到球共 " + counter.ToString() + " 次";
+        panelText.text = "找到紙團共 " + counter.ToString() + " 次";
     }
 }
