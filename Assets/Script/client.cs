@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
@@ -201,14 +201,14 @@ public class client : MonoBehaviour
         if (step == -5)
         {
             Checklist.SetActive(false);
-            StartButton.GetComponentInChildren<Text>().text = "Start";
+            StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "";
             img.transform.GetChild(0).gameObject.SetActive(true);
         }
         else if (step == -4)
         {
             img.transform.GetChild(0).gameObject.SetActive(false);
             img.transform.GetChild(1).gameObject.SetActive(true);
-            StartButton.GetComponentInChildren<Text>().text = "Continue";
+            StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "OK";
         }
         else if (step == -3)
         {
@@ -226,7 +226,7 @@ public class client : MonoBehaviour
                 role = str[1];
                 if(str[1] == "good") RoleText.text ="大雄";
                 else RoleText.text = "胖虎";
-                    StartButton.GetComponentInChildren<Text>().text = "OK";
+                    StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "OK";
             }
             /*else
             {
@@ -269,7 +269,6 @@ public class client : MonoBehaviour
             StoryBackGround.SetActive(true);
             SceneController.SetActive(true);
             story.gameObject.SetActive(true);
-            Checklist.SetActive(true);
             video.Play(); 
             video.Pause();
             skip = SceneControl.miss;
@@ -284,11 +283,10 @@ public class client : MonoBehaviour
             Buttonnext.SetActive(false);
             story.text = "";
             StoryBackGround.SetActive(false);
-            //Checklist.SetActive(false);
 
             if (bgmflag) Good.Play();
             else Bad.Play();
-
+	    Checklist.SetActive(true);
             video.Play();
 
             if (video.isPlaying)
