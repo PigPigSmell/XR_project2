@@ -16,6 +16,7 @@ public class GameToJson : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
+        LoadData();
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class GameToJson : MonoBehaviour
         Variables var = new Variables();
 
         var.gameResult = GamePanel.counter;
-
+        var.gameIdx = 0;
 
         string saveString = JsonUtility.ToJson(var);
 
@@ -43,10 +44,10 @@ public class GameToJson : MonoBehaviour
         file.Close();
     }
 
-    public void LoadData(string filename)
+    public void LoadData()
     {
         //讀取json檔案並轉存成文字格式
-        StreamReader file = new StreamReader(System.IO.Path.Combine(Application.streamingAssetsPath, filename));
+        StreamReader file = new StreamReader(System.IO.Path.Combine(Application.streamingAssetsPath, "GameResult.json"));
         string loadJson = file.ReadToEnd();
         file.Close();
 
@@ -59,6 +60,7 @@ public class GameToJson : MonoBehaviour
     {
         // GamePanel.cs
         public int gameResult;
+        public int gameIdx;
     }
 
 }

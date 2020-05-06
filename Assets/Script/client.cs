@@ -240,10 +240,13 @@ public class client : MonoBehaviour
         {
             
             StoryBackGround.SetActive(true);
-            
+
+            SceneController.SetActive(true);
+            story.gameObject.SetActive(true);
+            Checklist.SetActive(true);
+
             video.Play(); 
             video.Pause();
-            SceneController.SetActive(true);
             skip = SceneControl.miss;
             
             if (Time.time - startTime > 3)
@@ -286,23 +289,33 @@ public class client : MonoBehaviour
         }
         else if (step == 3)
         {
-	    Checklist.SetActive(false);
-            GameController.SetActive(true);
-
+            if (getGameResult == false)
+            {
+                // GameController.SetActive(true);
+                getGameResult = true;
+                toJ.WriteData();
+                toJ.WriteGameIdx();
+                SceneManager.LoadScene(1);
+            }
             // Sent game result
             if (getGameResult == true)
             {
                 SocketSend(GameResult_temp.text);
                 GameController.SetActive(false);
                 GameResult_temp.text = "";
-                getGameResult = false;
-                step++;
+
+                if (recvStr == "got game result")
+                {
+                    step++;
+                    getGameResult = false;
+                }
             }
         }
         else if (step == 4)
         {
             // Recieve winner information
             string[] str = recvStr.Split(':');
+            story.gameObject.SetActive(false);
             if (str[0] == "winner")
             {
                 if (str[1] == role)

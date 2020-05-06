@@ -9,6 +9,12 @@ public class GameEnv : MonoBehaviour
     public List<Environment> m_envs = null;
     public int env_index = 0;
 
+    private void Start()
+    {
+        Debug.Log("+++" + GameToJson.Data.gameIdx);
+        m_skyboxController.NewEnvironment(m_envs[GameToJson.Data.gameIdx]);
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.DownArrow))
