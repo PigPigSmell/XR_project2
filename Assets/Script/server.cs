@@ -87,7 +87,7 @@ public class server : MonoBehaviour
             recvStr = Encoding.ASCII.GetString(recvData, 0, recvLen);
             print(recvStr);
             //將接收到的資料經過處理再發送出去
-            sendStr = "From Server: " + recvStr;
+            sendStr = recvStr;
             SocketSend(sendStr);
         }
     }

@@ -1,4 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Video;
+using UnityEngine.SceneManagement;
+
 using System.Collections;
 //引入庫
 using System.Net;
@@ -6,47 +10,51 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-using UnityEngine.UI;
-using UnityEngine.Video;
 using TMPro;
 
 public class client : MonoBehaviour
 {
+    [Header ("GameObject")]
     public GameObject StartScene;
     public GameObject SceneController;
     public GameObject GameController;
     public GameObject ButtonAB;
     public GameObject StartButton;
+    public GameObject Buttonnext;
+    public GameObject Checklist;
+    public GameObject StoryBackGround;
+
+    [Header("Image")]
     public Image img;
     public Image Endimg;
+
+    [Header("Text")]
+    public Text GameResult_temp;
+
+    [Header("AudioSource")]
     public AudioSource BGM;
-    public GameObject Buttonnext;
-    //public GameObject EndScene;
-    //
+    public AudioSource Good;
+    public AudioSource Bad;
     AudioSource audio_source;
+
+    [Header("VideoPlayer")]
+    public VideoPlayer video;
+
+    [Header("AudioClip")]
     public AudioClip welcome;
     public AudioClip b_sound;
 
-    public Text GameResult_temp;
-    private bool getGameResult = false;
-    private string role;
-    public TextMeshProUGUI story;
 
+    [Header("TextMeshProUGUI")]
+    public TextMeshProUGUI story;
     public TextMeshProUGUI resultA;
     public TextMeshProUGUI resultB;
     public TextMeshProUGUI StartText;
     public TextMeshProUGUI RoleText;
     public TextMeshProUGUI time;
-    public GameObject Checklist;
-
-    public GameObject StoryBackGround;
-
-    public VideoPlayer video;
-
-    string go = "false:";
-
+    
+    // socket
     string editString = "start"; //編輯框文字
-
     Socket serverSocket; //伺服器端socket
     IPAddress ip; //主機ip
     IPEndPoint ipEnd;
@@ -57,22 +65,28 @@ public class client : MonoBehaviour
     int recvLen; //接收的資料長度
     Thread connectThread; //連線執行緒
 
-    private bool played = false;
-    private int step = 0;
-    private string press;
-    private int skip;
+    private bool connect = false;
+    private bool bgmflag = true;
 
-    private float startTime;
-    private float endTime;
+    // Initialize
+    static public int step;
+    static public bool played;
+    static public int skip;
+    static public float startTime;
+    static public string go;
+    static public bool getGameResult;
+    static public string role;
 
     SceneControl sc;
+    ToJson toJ;
 
     //初始化
     void InitSocket()
     {
         //定義伺服器的IP和埠，埠與伺服器對應
-        ip = IPAddress.Parse("140.113.193.198"); //可以是區域網或網際網路ip，此處是本機
+        ip = IPAddress.Parse("140.113.193.198"); //可以是區域網或網際網路ip
         ipEnd = new IPEndPoint(ip, 2222);
+        
         //ip = IPAddress.Parse("127.0.0.1"); //可以是區域網或網際網路ip，此處是本機
         //ipEnd = new IPEndPoint(ip, 5566);
 
@@ -89,8 +103,10 @@ public class client : MonoBehaviour
         //定義套接字型別,必須在子執行緒中定義
         serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         print("ready to connect");
+
         //連線
         serverSocket.Connect(ipEnd);
+        connect = true;
 
         //輸出初次連線收到的字串
         recvLen = serverSocket.Receive(recvData);
@@ -144,20 +160,26 @@ public class client : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        sc = GameObject.Find("SceneManager").GetComponent<SceneControl>();
-        audio_source = GetComponent<AudioSource>();
-        StartScene.SetActive(true);
-        SceneController.SetActive(false);
-        GameController.SetActive(false);
-        ButtonAB.SetActive(false);
-        
-        Buttonnext.SetActive(false);
-        //EndScene.SetActive(false);
-        StoryBackGround.SetActive(false);
-        
         InitSocket();
-        step = -5;
+        sc = GameObject.Find("SceneManager").GetComponent<SceneControl>();
+        toJ = GameObject.Find("enviroment").GetComponent<ToJson>();
+
+        
+        audio_source = GetComponent<AudioSource>();
         video.Stop();
+
+        // Initialize variable
+        StartScene.SetActive(ToJson.Data.StartScene);
+        SceneController.SetActive(ToJson.Data.SceneController);
+        GameController.SetActive(ToJson.Data.GameController);
+        ButtonAB.SetActive(ToJson.Data.ButtonAB);
+        Buttonnext.SetActive(ToJson.Data.Buttonnext);
+        step = ToJson.Data.step;
+        played = ToJson.Data.played;
+        skip = ToJson.Data.skip;
+        startTime = ToJson.Data.startTime;
+        go = ToJson.Data.go;
+        role = ToJson.Data.role;
     }
 
     void OnGUI()
@@ -257,6 +279,10 @@ public class client : MonoBehaviour
             story.text = "";
             StoryBackGround.SetActive(false);
             Checklist.SetActive(false);
+
+            if (bgmflag) Good.Play();
+            else Bad.Play();
+
             video.Play();
 
             if (video.isPlaying)
@@ -268,7 +294,10 @@ public class client : MonoBehaviour
         {
             if (!video.isPlaying)
             {
-                if(skip == 1)
+                if (bgmflag) Good.Pause();
+                else Bad.Pause();
+
+                if (skip == 1)
                 {
                     step = 0;
                     sc.PressA();
@@ -286,31 +315,56 @@ public class client : MonoBehaviour
         }
         else if (step == 3)
         {
-            GameController.SetActive(true);
-
-            // Sent game result
-            if (getGameResult == true)
+            if (getGameResult == false)
             {
-                SocketSend(GameResult_temp.text);
+                // GameController.SetActive(true);
+                getGameResult = true;
+                toJ.WriteData();
+                SceneManager.LoadScene(1);
+            }
+            // Sent game result
+            else if (getGameResult == true && connect == true)
+            {
+                toJ.LoadGameResult();
+
+                string str = "";
+                if (role == "good")
+                {
+                    str = "+" + (ToJson.GameData.gameResult).ToString();
+                }
+                else if (role == "bad")
+                {
+                    str = "-" + (ToJson.GameData.gameResult).ToString();
+                }
+
+                SocketSend(str);
                 GameController.SetActive(false);
                 GameResult_temp.text = "";
-                getGameResult = false;
-                step++;
+
+                if (recvStr == "got game result")
+                {
+                    step++;
+                    getGameResult = false;
+                    //video.Play();
+                }
             }
         }
         else if (step == 4)
         {
+            //video.Pause();
             // Recieve winner information
             string[] str = recvStr.Split(':');
             if (str[0] == "winner")
             {
                 if (str[1] == role)
                 {
+                    bgmflag = true;
                     ButtonAB.transform.GetChild(0).GetComponent<Button>().interactable = true;
                     ButtonAB.transform.GetChild(1).GetComponent<Button>().interactable = true;
                 }
                 else if (str[1] != role)
                 {
+                    bgmflag = false;
                     ButtonAB.transform.GetChild(0).GetComponent<Button>().interactable = false;
                     ButtonAB.transform.GetChild(1).GetComponent<Button>().interactable = false;
                 }

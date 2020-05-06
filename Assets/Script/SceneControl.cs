@@ -16,15 +16,18 @@ public class SceneControl : MonoBehaviour
     public VideoPlayer video;
     public VideoClip[] videoclips = new VideoClip[30];
 
-    static public int miss;
-    static public int spendMinute;
 
-    private int mode;
     //private StringBuilder story_data = new StringBuilder(); // Store the data read from Json
     private string story_line = "Assets/story/story_line.json";
     private string path = "Assets/story/";
 
     private JsonData data; // About the story line
+
+    // Initialize
+    static public int mode;
+    static public int miss;
+    static public int spendMinute;
+
 
     client c;
 

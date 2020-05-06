@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class GamePanel : MonoBehaviour
 {
+    // Initialize
+    static public int counter;
 
-    public int counter = 0;
     public Text panelText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        counter = 0;
     }
 
     public void AddCounter()
