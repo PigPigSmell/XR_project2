@@ -2,7 +2,7 @@
 	{
 		"position": "0",
 		"option": [ "+1", "-2" ],
-		"path_cost": [ "0", "0" ],
+		"path_cost": [ "0", "10" ],
 		"video": "0",
 		"story": "story0.json",
 		"music": "",

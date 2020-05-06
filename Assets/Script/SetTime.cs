@@ -9,7 +9,7 @@ public class SetTime : MonoBehaviour
     public TextMeshProUGUI currentTime;
 
     private float startTime;
-    private int minute;
+    static public int minute;
 
     client c;
 

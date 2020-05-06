@@ -16,6 +16,11 @@ public class SceneControl : MonoBehaviour
     public VideoPlayer video;
     public VideoClip[] videoclips = new VideoClip[30];
 
+    // Check List
+    public TextMeshProUGUI teacher;
+    public TextMeshProUGUI department;
+    public TextMeshProUGUI office;
+
 
     //private StringBuilder story_data = new StringBuilder(); // Store the data read from Json
     private string story_line = "Assets/story/story_line.json";
@@ -27,13 +32,20 @@ public class SceneControl : MonoBehaviour
     static public int mode;
     static public int miss;
     static public int spendMinute;
-
-
+    // Check List
+    static public string check_teacher;
+    static public string check_department;
+    static public string check_office;
+    
     client c;
+
+    JsonData story_i;
 
     // Start is called before the first frame update
     void Start()
     {
+        c = GameObject.Find("Manager").GetComponent<client>();
+
         // Store Story Line
         StringBuilder story_data = new StringBuilder(); // Store the data read from Json
         using (StreamReader sr = new StreamReader(story_line))
@@ -43,12 +55,15 @@ public class SceneControl : MonoBehaviour
         data = JsonMapper.ToObject(story_data.ToString());
 
         // Initialize
-        mode = 0;
-        spendMinute = 0;
-        miss = 0;
-        ShowInformation();
+        mode = ToJson.Data.mode;
+        spendMinute = ToJson.Data.spendMinute;
+        miss = ToJson.Data.miss;
 
-        c = GameObject.Find("Manager").GetComponent<client>();
+        check_teacher = ToJson.Data.check_teacher;
+        check_department = ToJson.Data.check_department;
+        check_office = ToJson.Data.check_office;
+
+        ShowInformation();
     }
 
     // Update is called once per frame
@@ -74,12 +89,16 @@ public class SceneControl : MonoBehaviour
     public void PressA()
     {
         spendMinute += int.Parse((string)(data[mode]["path_cost"][0]));
+        //CheckList();
+
         mode = Mathf.Abs(int.Parse((string)(data[mode]["option"][0])));
         ShowInformation();
     }
     public void PressB()
     {
         spendMinute += int.Parse((string)(data[mode]["path_cost"][1]));
+        //CheckList();
+
         mode = Mathf.Abs(int.Parse((string)(data[mode]["option"][1])));
         ShowInformation();
     }
@@ -93,7 +112,7 @@ public class SceneControl : MonoBehaviour
         {
             story_data.Append(sr.ReadToEnd());// read all data
         }
-        JsonData story_i = JsonMapper.ToObject(story_data.ToString());
+        story_i = JsonMapper.ToObject(story_data.ToString());
         
         // story description
         story.text = (string)(story_i["description"]);
@@ -102,8 +121,8 @@ public class SceneControl : MonoBehaviour
         //video.url = "file://E:/tmp/" + data[mode]["video"];
         
         //video.url = "Media/360/0.MP4";
-        int i = int.Parse((string)data[mode]["video"]);
-        video.clip = videoclips[i];
+        //int i = int.Parse((string)data[mode]["video"]);
+        //video.clip = videoclips[i];
         
         // audio setting
 
@@ -122,8 +141,8 @@ public class SceneControl : MonoBehaviour
 
             if(signA =='+' || signA == '-')
             {
-                ShowButton(story_i, 0, signA);
-                ShowButton(story_i, 1, signB);
+                ShowButton(0, signA);
+                ShowButton(1, signB);
             }
             else
             {
@@ -131,9 +150,13 @@ public class SceneControl : MonoBehaviour
                 //PressA();
             }
         }
+
+        teacher.text = check_teacher;
+        department.text = check_department;
+        office.text = check_office;
     }
 
-    private void ShowButton(JsonData story_i, int i, char sign)
+    private void ShowButton(int i, char sign)
     {
         string str = "";
         if (sign == '+')
@@ -154,6 +177,29 @@ public class SceneControl : MonoBehaviour
         else if (i == 1)
         {
             B.GetComponentInChildren<TextMeshProUGUI>().text = str + (string)(story_i["option"][1]["name"]) + " : " + (string)(story_i["option"][1]["description"]);
+        }
+    }
+
+    public void CheckList()
+    {
+        int listLen = data[mode]["check_list"].Count;
+        Debug.Log("listLen " + listLen);
+
+        for(int i=0; i < listLen; i++)
+        {
+            //Debug.Log("**" + int.Parse((string)(data[mode]["check_list"][i])));
+            if((int)(data[mode]["check_list"][i]) == 0)
+            {
+                check_teacher = "+ 老師簽名";
+            }
+            else if((int)(data[mode]["check_list"][i]) == 1)
+            {
+                check_department = "+ 系辦蓋章";
+            }
+            else if ((int)(data[mode]["check_list"][i]) == 2)
+            {
+                check_office = "+ 教務處蓋章";
+            }
         }
     }
 

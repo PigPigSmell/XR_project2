@@ -1968,7 +1968,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727647545}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 10e1dcdaa4920374d965e3bf1d570add, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 1347e7ddc2ba0f243a3544d782f2f0b0, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -5846,6 +5846,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  teacher: {fileID: 1589859584}
+  department: {fileID: 1834773724}
+  office: {fileID: 33242013}
 --- !u!4 &2023232673
 Transform:
   m_ObjectHideFlags: 0
@@ -6661,7 +6664,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126709701}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.15453319, y: 0.13621944, z: 0.15453322}
   m_Children:
   - {fileID: 1515390874}
@@ -6670,7 +6673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.4, y: 5}
+  m_AnchoredPosition: {x: -0.4, y: 3.2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2126709704

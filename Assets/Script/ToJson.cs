@@ -54,7 +54,11 @@ public class ToJson : MonoBehaviour
         var.mode = SceneControl.mode;
         var.miss = SceneControl.miss;
         var.spendMinute = SceneControl.spendMinute;
-        
+
+        var.check_teacher = SceneControl.check_teacher;
+        var.check_department = SceneControl.check_department;
+        var.check_office = SceneControl.check_office;
+
         string saveString = JsonUtility.ToJson(var);
 
         //write to Josn
@@ -72,8 +76,6 @@ public class ToJson : MonoBehaviour
 
         //使用JsonUtillty的FromJson方法將存文字轉成Json
         Data = JsonUtility.FromJson<Variables>(loadJson);
-
-        Debug.Log("**" + Data.step);
     }
 
     public void LoadGameResult()
@@ -114,7 +116,11 @@ public class ToJson : MonoBehaviour
         var.miss = 0;
         var.spendMinute = 0;
 
-        string saveString = JsonUtility.ToJson(var);
+        var.check_teacher = "- 老師簽名";
+        var.check_department = "- 系辦蓋章";
+        var.check_office = "- 教務處蓋章";
+
+    string saveString = JsonUtility.ToJson(var);
 
         //write to Josn
         StreamWriter file = new StreamWriter(System.IO.Path.Combine(Application.streamingAssetsPath, "Variables.json"));
@@ -149,6 +155,10 @@ public class ToJson : MonoBehaviour
         public int mode;
         public int miss;
         public int spendMinute;
+
+        public string check_teacher;
+        public string check_department;
+        public string check_office;
     }
 
     [System.Serializable]

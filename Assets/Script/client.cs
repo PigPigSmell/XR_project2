@@ -192,6 +192,11 @@ public class client : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(SetTime.minute < 0)
+        {
+            step = 7;
+        }
+
         //Debug.Log(step);
         if (step == -5)
         {
@@ -278,7 +283,7 @@ public class client : MonoBehaviour
             Buttonnext.SetActive(false);
             story.text = "";
             StoryBackGround.SetActive(false);
-            Checklist.SetActive(false);
+            //Checklist.SetActive(false);
 
             if (bgmflag) Good.Play();
             else Bad.Play();
@@ -294,6 +299,8 @@ public class client : MonoBehaviour
         {
             if (!video.isPlaying)
             {
+                sc.CheckList();
+
                 if (bgmflag) Good.Pause();
                 else Bad.Pause();
 
@@ -326,6 +333,7 @@ public class client : MonoBehaviour
             else if (getGameResult == true && connect == true)
             {
                 toJ.LoadGameResult();
+                video.Play();
 
                 string str = "";
                 if (role == "good")
@@ -351,7 +359,7 @@ public class client : MonoBehaviour
         }
         else if (step == 4)
         {
-            //video.Pause();
+            video.Pause();
             // Recieve winner information
             string[] str = recvStr.Split(':');
             if (str[0] == "winner")
@@ -425,12 +433,14 @@ public class client : MonoBehaviour
         }
         if(step == 7)
         {
-            Debug.Log(step);
+            //Debug.Log(step);
             BGM.Pause();
             StartScene.SetActive(false);
             //EndScene.SetActive(true);
             ButtonAB.SetActive(false);
             Endimg.transform.GetChild(0).gameObject.SetActive(true);
+
+            sc.CheckList();
         }
     }
 
