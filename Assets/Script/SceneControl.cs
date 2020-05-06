@@ -121,8 +121,8 @@ public class SceneControl : MonoBehaviour
         //video.url = "file://E:/tmp/" + data[mode]["video"];
         
         //video.url = "Media/360/0.MP4";
-        //int i = int.Parse((string)data[mode]["video"]);
-        //video.clip = videoclips[i];
+        int i = int.Parse((string)data[mode]["video"]);
+        video.clip = videoclips[i];
         
         // audio setting
 
@@ -190,15 +190,15 @@ public class SceneControl : MonoBehaviour
             //Debug.Log("**" + int.Parse((string)(data[mode]["check_list"][i])));
             if((int)(data[mode]["check_list"][i]) == 0)
             {
-                check_teacher = "+ ¦Ñ®vÃ±¦W";
+                check_teacher = "+ è€å¸«ç°½å";
             }
             else if((int)(data[mode]["check_list"][i]) == 1)
             {
-                check_department = "+ ¨t¿ì»\³¹";
+                check_department = "+ ç³»è¾¦è“‹ç« ";
             }
             else if ((int)(data[mode]["check_list"][i]) == 2)
             {
-                check_office = "+ ±Ğ°È³B»\³¹";
+                check_office = "+ æ•™å‹™è™•è“‹ç« ";
             }
         }
     }
