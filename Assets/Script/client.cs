@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
@@ -248,7 +248,7 @@ public class client : MonoBehaviour
 
             StartButton.SetActive(false);
             ////////////////
-            step = 7; ///test end
+            //step = 7; ///test end
             ///////////////
             
             if (recvStr == "scene start")
