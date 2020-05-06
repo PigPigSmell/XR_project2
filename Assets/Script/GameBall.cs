@@ -22,7 +22,20 @@ public class GameBall : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        Vector3 clickPos;
+        bool clicked;
+
+#if UNITY_ANDROID || UNITY_IOS
+         clicked = Input.touchCount > 0;
+         if(clicked)
+             clickPos = Input.GetTouch(0).position;
+#else
+        clicked = Input.GetMouseButtonDown(0);
+        clickPos = Input.mousePosition;
+#endif
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(clickPos);
+        if (Physics.Raycast(ray, out hit) && clicked)
         {
             RandomlyTeleport();
         }
