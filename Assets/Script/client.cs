@@ -196,8 +196,7 @@ public class client : MonoBehaviour
         {
             step = 7;
         }
-
-        Debug.Log(step);
+        
         if (step == -5)
         {
             Checklist.SetActive(false);
@@ -265,10 +264,12 @@ public class client : MonoBehaviour
         }
         else if(step == 0)
         {
-            
             StoryBackGround.SetActive(true);
             SceneController.SetActive(true);
             story.gameObject.SetActive(true);
+
+            sc.Rotation();
+
             video.Play(); 
             video.Pause();
             skip = SceneControl.miss;
@@ -299,7 +300,6 @@ public class client : MonoBehaviour
             if (!video.isPlaying)
             {
                 sc.CheckList();
-
                 if (bgmflag) Good.Pause();
                 else Bad.Pause();
 
@@ -327,6 +327,7 @@ public class client : MonoBehaviour
                 getGameResult = true;
                 toJ.WriteData();
                 toJ.WriteGameIdx();
+                
                 SceneManager.LoadScene(1);
             }
             // Sent game result
@@ -448,11 +449,7 @@ public class client : MonoBehaviour
             {
                 Endimg.transform.GetChild(2).gameObject.SetActive(true);
             }
-            
-
             sc.CheckList();
-
-
         }
     }
 

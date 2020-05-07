@@ -560,7 +560,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2.9939185e-38, y: 3.0306532e-38, z: 3.067388e-38,
+    w: 3.1041227e-38}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1860,7 +1861,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8fc098f614212c14c85fe048e794d25c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c175497db75ece24c8e54df6e39e1622, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6221,7 +6222,7 @@ MonoBehaviour:
   teacher: {fileID: 1589859584}
   department: {fileID: 1834773724}
   office: {fileID: 33242013}
-  environment: {fileID: 0}
+  environment: {fileID: 727647545}
 --- !u!4 &2023232673
 Transform:
   m_ObjectHideFlags: 0

@@ -94,7 +94,6 @@ public class SceneControl : MonoBehaviour
     public void PressA()
     {
         spendMinute += int.Parse((string)(data[mode]["path_cost"][0]));
-        //CheckList();
 
         mode = Mathf.Abs(int.Parse((string)(data[mode]["option"][0])));
         ShowInformation();
@@ -102,7 +101,7 @@ public class SceneControl : MonoBehaviour
     public void PressB()
     {
         spendMinute += int.Parse((string)(data[mode]["path_cost"][1]));
-        //CheckList();
+
 
         mode = Mathf.Abs(int.Parse((string)(data[mode]["option"][1])));
         ShowInformation();
@@ -119,6 +118,7 @@ public class SceneControl : MonoBehaviour
         }
         story_i = JsonMapper.ToObject(story_data.ToString());
         
+
         // story description
         story.text = (string)(story_i["description"]);
         
@@ -202,24 +202,29 @@ public class SceneControl : MonoBehaviour
         {
             if((int)(data[mode]["check_list"][i]) == 0)
             {
-                check_teacher = "+ 老師簽名";
+                check_teacher = "O 老師簽名";
             }
             else if((int)(data[mode]["check_list"][i]) == 1)
             {
-                check_department = "+ 系辦蓋章";
+                check_department = "O 系辦蓋章";
             }
             else if ((int)(data[mode]["check_list"][i]) == 2)
             {
-                check_office = "+ 教務處蓋章";
+                check_office = "O 教務處蓋章";
             }
         }
     }
-    /*
+    
     public void Rotation()
     {
-        environment.transform.rotation = ;
+        float x = 180 - float.Parse(data[mode]["rotation"][0].ToString());
+        float y = float.Parse(data[mode]["rotation"][1].ToString()) - 180;
+        float z = float.Parse(data[mode]["rotation"][2].ToString()) - 180;
+        
+        // environment setting
+        environment.transform.rotation = Quaternion.Euler(x, y, z);
     }
-    */
+    
     private void EndGame()
     {
         story.text = "End";
