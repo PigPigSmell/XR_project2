@@ -129,8 +129,8 @@ public class ToJson : MonoBehaviour
         var.spendMinute = 0;
 
         var.check_teacher = "X 老師簽名";
-        var.check_department = "X 系辦蓋章";
-        var.check_office = "X 教務處蓋章";
+        var.check_department = "X系辦蓋章";
+        var.check_office = "X教務處蓋章";
 
         string saveString = JsonUtility.ToJson(var);
 

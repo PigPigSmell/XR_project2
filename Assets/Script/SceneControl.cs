@@ -20,6 +20,8 @@ public class SceneControl : MonoBehaviour
     public TextMeshProUGUI teacher;
     public TextMeshProUGUI department;
     public TextMeshProUGUI office;
+    public TextMeshProUGUI underButtonA;
+    public TextMeshProUGUI underButtonB;
 
     public GameObject environment;
 
@@ -171,25 +173,27 @@ public class SceneControl : MonoBehaviour
 
     private void ShowButton(int i, char sign)
     {
-        string str = "";
+        //string str = "";
         if (sign == '+')
         {
             // positive option
-            str = "(70%) ";
+            //str = "(70%) ";
+            underButtonA.text = "70%";
         }
         else if (sign == '-')
         {
             // negative option
-            str = "(30%) ";
+            //str = "(30%) ";
+            underButtonB.text = "30%";
         }
 
         if(i == 0)
         {
-            A.GetComponentInChildren<TextMeshProUGUI>().text = str + (string)(story_i["option"][0]["name"]) + " : " + (string)(story_i["option"][0]["description"]);
+            A.GetComponentInChildren<TextMeshProUGUI>().text = (string)(story_i["option"][0]["name"]) + " : " + (string)(story_i["option"][0]["description"]);
         }
         else if (i == 1)
         {
-            B.GetComponentInChildren<TextMeshProUGUI>().text = str + (string)(story_i["option"][1]["name"]) + " : " + (string)(story_i["option"][1]["description"]);
+            B.GetComponentInChildren<TextMeshProUGUI>().text = (string)(story_i["option"][1]["name"]) + " : " + (string)(story_i["option"][1]["description"]);
         }
     }
 
@@ -205,11 +209,11 @@ public class SceneControl : MonoBehaviour
             }
             else if((int)(data[mode]["check_list"][i]) == 1)
             {
-                check_department = "O 系辦蓋章";
+                check_department = "O系辦蓋章";
             }
             else if ((int)(data[mode]["check_list"][i]) == 2)
             {
-                check_office = "O 教務處蓋章";
+                check_office = "O教務處蓋章";
             }
         }
     }

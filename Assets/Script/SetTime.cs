@@ -27,7 +27,7 @@ public class SetTime : MonoBehaviour
         float spendTime = (Time.time - startTime) / 60;
         minute = 90 - ((int)(spendTime) + SceneControl.spendMinute);
         
-        currentTime.text = minute.ToString();
+        currentTime.text = "剩下時間: " + minute.ToString() + " min";
 
         if(minute <= 0)
         {

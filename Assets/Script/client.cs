@@ -28,6 +28,10 @@ public class client : MonoBehaviour
     public Image img;
     public Image Endimg;
 
+    [Header("Sprite")]
+    public Sprite img_continue;
+    public Sprite img_OK;
+
     [Header("Text")]
     public Text GameResult_temp;
 
@@ -35,6 +39,7 @@ public class client : MonoBehaviour
     public AudioSource BGM;
     public AudioSource Good;
     public AudioSource Bad;
+    public AudioSource vote;
     AudioSource audio_source;
 
     [Header("VideoPlayer")]
@@ -49,6 +54,8 @@ public class client : MonoBehaviour
     public TextMeshProUGUI story;
     public TextMeshProUGUI resultA;
     public TextMeshProUGUI resultB;
+    public TextMeshProUGUI underButtonA;
+    public TextMeshProUGUI underButtonB;
     public TextMeshProUGUI StartText;
     public TextMeshProUGUI RoleText;
     public TextMeshProUGUI time;
@@ -67,7 +74,7 @@ public class client : MonoBehaviour
 
     private bool connect = false;
     private bool bgmflag = true;
-
+    static bool startflag = true;
     // Initialize
     static public int step;
     static public bool played;
@@ -180,14 +187,17 @@ public class client : MonoBehaviour
         startTime = ToJson.Data.startTime;
         go = ToJson.Data.go;
         role = ToJson.Data.role;
+        
     }
 
+    
     void OnGUI()
     {
         editString = GUI.TextField(new Rect(10, 10, 100, 20), editString);
         if (GUI.Button(new Rect(10, 30, 60, 20), "send"))
             SocketSend(editString);
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -196,18 +206,25 @@ public class client : MonoBehaviour
         {
             step = 7;
         }
-        
+
+        if (startflag)
+        {
+            BGM.Play();
+            startflag = false;
+        }
         if (step == -5)
         {
+            
             Checklist.SetActive(false);
-            StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            //StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "";
             img.transform.GetChild(0).gameObject.SetActive(true);
         }
         else if (step == -4)
         {
             img.transform.GetChild(0).gameObject.SetActive(false);
             img.transform.GetChild(1).gameObject.SetActive(true);
-            StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "OK";
+            //StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "OK";
+            StartButton.GetComponent<Image>().sprite = img_continue;
         }
         else if (step == -3)
         {
@@ -225,7 +242,8 @@ public class client : MonoBehaviour
                 role = str[1];
                 if(str[1] == "good") RoleText.text ="大雄";
                 else RoleText.text = "胖虎";
-                    StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "OK";
+                //StartButton.GetComponentInChildren<TextMeshProUGUI>().text = "OK";
+                StartButton.GetComponent<Image>().sprite = img_OK;
             }
             /*else
             {
@@ -255,7 +273,7 @@ public class client : MonoBehaviour
                 step++;
                 audio_source.PlayOneShot(b_sound);
                 BGM.Pause();
-
+                startflag = false;
                 img.transform.GetChild(3).gameObject.SetActive(false);
                 StartScene.SetActive(false);
                 startTime = Time.time;
@@ -361,7 +379,9 @@ public class client : MonoBehaviour
         {
             video.Pause();
             // Recieve winner information
+            vote.Play();
             string[] str = recvStr.Split(':');
+            StoryBackGround.SetActive(false);
             story.gameObject.SetActive(false);
             if (str[0] == "winner")
             {
@@ -393,8 +413,8 @@ public class client : MonoBehaviour
             {
                 string[] str1 = recvStr.Split('=');
                 string[] num = str1[1].Split(':');
-                resultA.text = num[0];
-                resultB.text = num[1];
+                underButtonA.text = num[0];
+                underButtonB.text = num[1];
             }
 
             float remainTime = 10 - (Time.time - startTime);
@@ -435,6 +455,7 @@ public class client : MonoBehaviour
         if(step == 7)
         {
             //Debug.Log(step);
+            Checklist.SetActive(false);
             BGM.Pause();
             StartScene.SetActive(false);
             ButtonAB.SetActive(false);

@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class GameBall : MonoBehaviour
 {
+
+
+    public AudioSource C;
     public void RandomlyTeleport()
     {
         gameObject.transform.position = new Vector3(
@@ -37,6 +43,7 @@ public class GameBall : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(clickPos);
         if (Physics.Raycast(ray, out hit) && clicked)
         {
+            C.Play();
             RandomlyTeleport();
         }
     }

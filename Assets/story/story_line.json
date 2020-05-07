@@ -56,8 +56,8 @@
 	},
 	{
 		"position": "5",
-		"option": [ "-8", "+9" ],
-		"path_cost": [ "10", "5" ],
+		"option": [ "+9", "-8" ],
+		"path_cost": [ "5", "10" ],
 		"video": "5",
 		"story": "story5.json",
 		"music": "",
@@ -89,8 +89,8 @@
 	},
 	{
 		"position": "8",
-		"option": [ "-13", "+14" ],
-		"path_cost": [ "10", "15" ],
+		"option": [ "+14", "-13" ],
+		"path_cost": [ "15", "10" ],
 		"video": "8",
 		"story": "story8.json",
 		"music": "",
@@ -144,8 +144,8 @@
 	},
 	{
 		"position": "13",
-		"option": [ "-19", "+20" ],
-		"path_cost": [ "10", "20" ],
+		"option": [ "+20", "-19" ],
+		"path_cost": [ "20", "10" ],
 		"video": "13",
 		"story": "story13.json",
 		"music": "",
@@ -155,8 +155,8 @@
 	},
 	{
 		"position": "14",
-		"option": [ "-20", "+21" ],
-		"path_cost": [ "20", "10" ],
+		"option": [ "+21", "-20" ],
+		"path_cost": [ "10", "20" ],
 		"video": "14",
 		"story": "story14.json",
 		"music": "",
