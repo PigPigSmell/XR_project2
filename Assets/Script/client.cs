@@ -281,7 +281,7 @@ public class client : MonoBehaviour
         }
         else if (step == 1)
         {
-            Buttonnext.SetActive(false);
+            //Buttonnext.SetActive(false);
             story.text = "";
             StoryBackGround.SetActive(false);
 
@@ -487,9 +487,35 @@ public class client : MonoBehaviour
         step = n;
     }
 
+    public void InitialAll()
+    {
+        //InitSocket();
+        
+        video.Stop();
+
+        // Initialize variable
+        StartScene.SetActive(ToJson.Data.StartScene);
+        SceneController.SetActive(ToJson.Data.SceneController);
+        GameController.SetActive(ToJson.Data.GameController);
+        ButtonAB.SetActive(ToJson.Data.ButtonAB);
+        Buttonnext.SetActive(ToJson.Data.Buttonnext);
+        EndScene.SetActive(false);
+        step = ToJson.Data.step;
+        played = ToJson.Data.played;
+        skip = ToJson.Data.skip;
+        startTime = ToJson.Data.startTime;
+        go = ToJson.Data.go;
+        role = ToJson.Data.role;
+
+        StartText.text = "";
+        StartButton.SetActive(true);
+    }
+
+
     //程式退出則關閉連線
     void OnApplicationQuit()
     {
         SocketQuit();
+        toJ.InitializeAll();
     }
 }

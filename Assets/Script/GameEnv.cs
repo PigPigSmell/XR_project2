@@ -11,7 +11,6 @@ public class GameEnv : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("+++" + GameToJson.Data.gameIdx);
         m_skyboxController.NewEnvironment(m_envs[GameToJson.Data.gameIdx]);
     }
 

@@ -196,7 +196,6 @@ public class SceneControl : MonoBehaviour
     public void CheckList()
     {
         int listLen = data[mode]["check_list"].Count;
-        Debug.Log("listLen " + listLen);
 
         for(int i=0; i < listLen; i++)
         {
@@ -230,5 +229,19 @@ public class SceneControl : MonoBehaviour
         story.text = "End";
         A.gameObject.SetActive(false);
         B.gameObject.SetActive(false);
+    }
+
+    public void InitialAll()
+    {
+        // Initialize
+        mode = ToJson.Data.mode;
+        spendMinute = ToJson.Data.spendMinute;
+        miss = ToJson.Data.miss;
+
+        check_teacher = ToJson.Data.check_teacher;
+        check_department = ToJson.Data.check_department;
+        check_office = ToJson.Data.check_office;
+
+        ShowInformation();
     }
 }

@@ -106,9 +106,6 @@ public class ToJson : MonoBehaviour
 
     public void InitializeAll()
     {
-        //client c = GameObject.Find("Manager").GetComponent<client>();
-        //SceneControl sc = GameObject.Find("SceneManager").GetComponent<SceneControl>();
-
         Variables var = new Variables();
 
         // client.cs
@@ -124,16 +121,16 @@ public class ToJson : MonoBehaviour
         var.SceneController = false;
         var.GameController = false;
         var.ButtonAB = false;
-        var.Buttonnext = false;
+        var.Buttonnext = true;
 
         // SceneControl.cs
         var.mode = 0;
         var.miss = 0;
         var.spendMinute = 0;
 
-        var.check_teacher = "- 老師簽名";
-        var.check_department = "- 系辦蓋章";
-        var.check_office = "- 教務處蓋章";
+        var.check_teacher = "X 老師簽名";
+        var.check_department = "X 系辦蓋章";
+        var.check_office = "X 教務處蓋章";
 
         string saveString = JsonUtility.ToJson(var);
 
@@ -142,10 +139,13 @@ public class ToJson : MonoBehaviour
         file.Write(saveString);
         file.Close();
 
-        //LoadData();
+        LoadData();
 
-        //c.InitializeAll();
-        //sc.InitializeAll();
+        client c = GameObject.Find("Manager").GetComponent<client>();
+        SceneControl sc = GameObject.Find("SceneManager").GetComponent<SceneControl>();
+
+        c.InitialAll();
+        sc.InitialAll();
     }
 
     [System.Serializable]
