@@ -10,6 +10,8 @@ server/node_modules
 *.MP4
 *.mp4.meta
 *.MP4.meta
+*.wav
+*.wav.meta
 *.log
 
 # Visual Studio 2015 cache directory
